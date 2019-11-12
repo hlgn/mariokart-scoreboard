@@ -5,7 +5,7 @@
 <body>
 <input type="file" name="file" id="myImage"">
 <script>
-alert('aaa');                                            
+alert('bbb');                                            
 function ocr() {
 alert('aaa');
 console.log('aaa');
@@ -13,7 +13,9 @@ console.log('aaa');
 const { TesseractWorker, OEM, PSM } = Tesseract;
 const worker = new TesseractWorker();
  
+console.log('aaa1');
 myImage = document.getElementById('myImage');
+console.log('aaa2');
  
 worker.recognize(myImage, 'eng',{ // 1. 解析のオプションを指定して実行
     tessedit_pageseg_mode: PSM.SPARSE_TEXT_OSD, // オプション：ページ区切りモード
