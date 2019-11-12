@@ -1,10 +1,10 @@
 var i, j;
 document.write("<table>");
-document.write("<tr><td></td><td></td><td style=\"text-align:center\">(4)<br>input<br>player<br>points</td><td style=\"text-align:center\" colspan=\"6\">(3) input team name</td></tr>");
+/*document.write("<tr><td></td><td></td><td style=\"text-align:center\">(4)<br>input<br>player<br>points</td><td style=\"text-align:center\" colspan=\"6\">(3) input team name</td></tr>");
 document.write("<tr><td></td><td></td><td style=\"text-align:center\">↓</td>");
 for(i=0;i<6;i++)
 	document.write("<td style=\"text-align:center\">↓</td>");
-document.write("</tr>");
+document.write("</tr>");*/
 document.write("<tr><th>player</th><th>name</th><th>pts</th>");
 for(i=1;i<=6;i++)
 	//document.write("<th><input type=\"text\" style=\"width:5em\"  placeholder=\"Team" +i+ "\" id=\"team" +i+ "\"></th>");
