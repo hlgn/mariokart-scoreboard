@@ -5,6 +5,7 @@
 <body>
 <input type="file" name="file" id="myImage"">
 <script>
+function ocr() {
 const { TesseractWorker, OEM, PSM } = Tesseract;
 const worker = new TesseractWorker();
  
@@ -20,6 +21,8 @@ worker.recognize(myImage, 'eng',{ // 1. 解析のオプションを指定して�
     xxx.innerHTML = result.hocr; //解析結果をHTMLに埋め込み
     worker.terminate();
 });
+}
 </script>
+<input type="button" value="Exec" onclick="ocr()" tabindex="30">
 </body>
 </html>
