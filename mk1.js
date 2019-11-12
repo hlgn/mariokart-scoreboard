@@ -76,17 +76,16 @@ function img_table(img_spot) {
 			switch(imageStyle) {
 			case 0:
 				ctx.drawImage(img
-						, img_width*0.11, 0.127*img_height+0.058*img_height*img_spot, img_width*0.35, 0.05*img_height
-						, 0, 0, canvasWidth, canvasHeight);
-				break;
-
-			case 1:
-				ctx.drawImage(img
 						,img_width*0.525, 0.008*img_height+0.072*img_height*img_spot, img_width*0.26, 0.05*img_height
 						, 0, 0, canvasWidth*0.85, canvasHeight);
 				ctx.drawImage(img
 						,img_width*0.91, 0.008*img_height+0.072*img_height*img_spot, img_width*0.045, 0.05*img_height
 						, canvasWidth*0.85, 0, canvasWidth*0.15, canvasHeight);
+				break;
+			case 1:
+				ctx.drawImage(img
+						, img_width*0.11, 0.127*img_height+0.058*img_height*img_spot, img_width*0.35, 0.05*img_height
+						, 0, 0, canvasWidth, canvasHeight);
 				break;
 
 			default:
