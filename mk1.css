@@ -27,13 +27,12 @@ body {
 	background: cover;
 }
 
-.image_style input{
-	vertical-align:middle;
-}
+
 	
 
 .img_example {
 	height: 60px;
+	vertical-align:40%;
 }
 
 #blank {
