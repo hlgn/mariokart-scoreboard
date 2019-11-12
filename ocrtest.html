@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src='https://unpkg.com/tesseract.js@v2.0.0-alpha.13/dist/tesseract.min.js'></script>
+</head>
+<body>
+<input type="file" name="file" id="myImage"">
+<script>
+const { TesseractWorker, OEM, PSM } = Tesseract;
+const worker = new TesseractWorker();
+ 
+myImage = document.getElementById('myImage');
+ 
+worker.recognize(myImage, 'eng',{ // 1. 解析のオプションを指定して実行
+    tessedit_pageseg_mode: PSM.SPARSE_TEXT_OSD, // オプション：ページ区切りモード
+    tessedit_char_blacklist: 'e' // オプション：認識しない文字を指定
+}).progress(function (p) { // 2. 解析中に実行する処理を記載
+    console.log('progress', p)
+}).then(function (result) { // 3. 解析完了後の処理を記載
+    console.log(result); //コンソールに解析結果を出力
+    xxx.innerHTML = result.hocr; //解析結果をHTMLに埋め込み
+    worker.terminate();
+});
+</script>
+</body>
+</html>
