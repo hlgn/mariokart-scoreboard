@@ -31,10 +31,11 @@
 
 <script src="https://unpkg.com/tesseract.js@v2.0.0-alpha.13/dist/tesseract.min.js"></script>
 <script>
-    const exampleImage = 'https://tesseract.projectnaptha.com/img/eng_bw.png';
+    //const exampleImage = 'https://tesseract.projectnaptha.com/img/eng_bw.png';
+  const exampleImage = 'images/example.jpg';
     const worker = new Tesseract.TesseractWorker();
     worker.recognize(exampleImage)
-        .progress(progress => console.log('1progress', progress))
+        .progress(progress => console.log('progress', progress))
         .then(result => console.log('result', result))
         .finally(() => worker.terminate());
     const detectWorker = new Tesseract.TesseractWorker();
