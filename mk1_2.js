@@ -64,7 +64,7 @@ function loadLocalImage(e) {
 file.addEventListener('change', loadLocalImage, false);
 
 //Canvas上に画像を表示する
-function canvasDraw1(lang) {
+function canvasDraw1() {
 	var p, q, a, tmppts, pORn, infinite;
 	var totalpts=0;
     var downloadLink = document.getElementById('download_link');
