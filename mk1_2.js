@@ -64,12 +64,12 @@ function loadLocalImage(e) {
 file.addEventListener('change', loadLocalImage, false);
 
 //Canvas上に画像を表示する
-function canvasDraw1() {
+function canvasDraw1(lang) {
 	var p, q, a, tmppts, pORn, infinite;
 	var totalpts=0;
     var downloadLink = document.getElementById('download_link');
     var filename = 'mkr'+today.getFullYear()+(today.getMonth()+1)+today.getDate()+'.png';
-	alert('canvasDraw1');
+	alert(lang);
 	teampts = [0,0,0,0,0,0]; //initiallization of teampts
 	//get elements by HTML
 	var element_radio, imageStyle;
