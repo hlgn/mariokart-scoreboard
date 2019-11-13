@@ -57,6 +57,11 @@ body {
 	height: 10px;
 }
 
+.img_flag {
+	height: 30px;
+	/*vertical-align: -40%;*/
+}
+
 .img_Twitter {
 	height: 30px;
 	vertical-align: -40%;
