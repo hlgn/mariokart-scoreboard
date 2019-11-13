@@ -97,8 +97,15 @@ function canvasDraw1(lang) {
 					tmppts=0;
 					pORn=-1;
 				} else {
-					alert('player'+(p+1)+' - pts\nincluded \''+ptsString[p].charAt(a)+'\' (in \"'+ptsString[p]+'\")\nYou can only use number, \'+\' and \'-\'');
-					return;
+					switch (lang) {
+						case 'eng':
+							alert('player'+(p+1)+' - pts\nincluded \''+ptsString[p].charAt(a)+'\' (in \"'+ptsString[p]+'\")\nYou can only use number, \'+\' and \'-\'');
+							break;
+						case 'jpn':
+							alert('player'+(p+1)+'のptsに \''+ptsString[p].charAt(a)+'\'が\"'+ptsString[p]+'\"に含まれています\n数字と \'+\'、 \'-\'のみを使用してください');
+							break;
+					}
+							return;
 				}
 			}
 			pts[p]+=tmppts;
