@@ -100,7 +100,7 @@ function canvasDraw1() {
 							alert('player'+(p+1)+' - pts\nincluded \''+ptsString[p].charAt(a)+'\' (in \"'+ptsString[p]+'\")\nYou can only use number, \'+\' and \'-\'');
 							break;
 						case 'jpn':
-							alert('player'+(p+1)+'の個人点に \''+ptsString[p].charAt(a)+'\'が\"'+ptsString[p]+'\"の中にに含まれています\n数字と \'+\'、 \'-\'のみを使用してください');
+							alert('player'+(p+1)+'の個人点の \"'+ptsString[p]+'\"の中に\''+ptsString[p].charAt(a)+'\'が含まれています\n数字と \'+\'、 \'-\'のみを使用してください');
 							break;
 					}
 							return;
