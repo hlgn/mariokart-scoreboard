@@ -40,6 +40,8 @@ switch (lang) {
 		}
 		document.write("<tr><td></td><td><div style=\"text-align:right\">コメント(任意)</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
 		break;
+	default:
+		break;
 }
 document.write("</table>");
 
