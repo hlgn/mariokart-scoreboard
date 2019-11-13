@@ -50,7 +50,7 @@ body {
 	background: cover;
 }
 
-a {
+.linktext {
 	margin-right: 15px;
 	text-decoration: none; /*delete underline*/
 	color: #fff;
