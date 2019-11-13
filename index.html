@@ -1,47 +1,55 @@
 <html>
-<head>
+  <head>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
 <!-- <script src="jquery-3.4.1.min.js"></script>-->
 
-<link rel="stylesheet" type="text/css" href="mk1.css">
+    <link rel="stylesheet" type="text/css" href="mk1.css">
 
-<title>Score Sheet</title></head>
-<body>
-<div id="background"></div>
-<div id="header">Mario Kart Result</div>
-<br>
-(1) select image style
-<br>
-<table><tr>
-<td><label><input type="radio" name="imagestyle" checked="checked"><img src="./images/race_example.jpg" class="img_example"></label></td>
-<td><label><input type="radio" name="imagestyle"><img src="./images/final_example.jpg" class="img_example"></label></td></tr>
-<tr><td style="text-align:center">(↑recommended)</td><td></td></tr></table>
+    <title>Score Sheet</title>
+  </head>
+  <body>
+    <div id="background"></div>
+    <div id="header">Mario Kart Result</div>
+    <br>
+    (1) select image style
+    <br>
+    <table>
+      <tr>
+      <td><label><input type="radio" name="imagestyle" checked="checked"><img src="./images/race_example.jpg" class="img_example"></label></td>
+      <td><label><input type="radio" name="imagestyle"><img src="./images/final_example.jpg" class="img_example"></label></td>
+      </tr><tr>
+      <td style="text-align:center">(↑recommended)</td><td></td>
+      </tr>
+    </table>
 
-<br>
-<br>
-(2) choose image
-<br>
-<input type="file" name="file" id="file"">
-<br><br>
-<script type="text/javascript" src="mk1.js"></script>
+    <br>
+    <br>
+    (2) choose image
+    <br>
+    <input type="file" name="file" id="file"">
+    <br>
+    <br>
+    (3) input player's points and team name
+    <br>
+    <script type="text/javascript" src="mk1.js"></script>
 
-<input type="button" value="Exec" onclick="canvasDraw1()" tabindex="30">
-<br>
-<br>
-<canvas id="canvas_result"></canvas>
-<script type="text/javascript" src="mk1_2.js"></script>
+    <input type="button" value="Exec" onclick="canvasDraw1()" tabindex="30">
+    <br>
+    <br>
+    <canvas id="canvas_result"></canvas>
+    <script type="text/javascript" src="mk1_2.js"></script>
 
-<button id="download_button">download</button>
+    <button id="download_button">download</button>
 
-<a id="download_link"></a>
-<div id="blank"></div>
-<div id="foot">
-<br>
-<a href="https://twitter.com/hooligan_mk8d"><img src="./images/Twitter_White.png" class="img_Twitter"> Twitter @hooligan_mk8d </a>
-<!--
-<a href="https://www.instagram.com"><img src="./images/Instagram_White.png" class="img_Instagram"></a>
-<a href="https://www.youtube.com"><img src="./images/Youtube_White.png" class="img_Youtube"></a>
--->
-</div>
-</body>
+    <a id="download_link"></a>
+    <div id="blank"></div>
+    <div id="foot">
+    <br>
+    <a href="https://twitter.com/hooligan_mk8d"><img src="./images/Twitter_White.png" class="img_Twitter"> Twitter @hooligan_mk8d </a>
+    <!--
+    <a href="https://www.instagram.com"><img src="./images/Instagram_White.png" class="img_Instagram"></a>
+    <a href="https://www.youtube.com"><img src="./images/Youtube_White.png" class="img_Youtube"></a>
+    -->
+    </div>
+  </body>
 </html>
