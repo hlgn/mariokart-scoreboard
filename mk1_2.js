@@ -69,7 +69,6 @@ function canvasDraw1(lang) {
 	var totalpts=0;
     var downloadLink = document.getElementById('download_link');
     var filename = 'mkr'+today.getFullYear()+(today.getMonth()+1)+today.getDate()+'.png';
-	alert(lang);
 	teampts = [0,0,0,0,0,0]; //initiallization of teampts
 	//get elements by HTML
 	var element_radio, imageStyle;
@@ -102,7 +101,7 @@ function canvasDraw1(lang) {
 							alert('player'+(p+1)+' - pts\nincluded \''+ptsString[p].charAt(a)+'\' (in \"'+ptsString[p]+'\")\nYou can only use number, \'+\' and \'-\'');
 							break;
 						case 'jpn':
-							alert('player'+(p+1)+'のptsに \''+ptsString[p].charAt(a)+'\'が\"'+ptsString[p]+'\"に含まれています\n数字と \'+\'、 \'-\'のみを使用してください');
+							alert('player'+(p+1)+'の個人点に \''+ptsString[p].charAt(a)+'\'が\"'+ptsString[p]+'\"の中にに含まれています\n数字と \'+\'、 \'-\'のみを使用してください');
 							break;
 					}
 							return;
