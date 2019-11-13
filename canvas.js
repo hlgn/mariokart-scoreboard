@@ -86,8 +86,7 @@ function canvasDraw1() {
 			for(var a=0;a<ptsString[p].length;a++){
 				if(!isNaN(ptsString[p].charAt(a))&&ptsString[p].charAt(a)!=null&&ptsString[p].charAt(a).indexOf(' ')!=0){//数値の時
 					tmppts=tmppts*10+pORn*Number(ptsString[p].charAt(a));
-				} else if(ptsString[p].charAt(a)=='+' || ptsString[5].charAt(2).indexOf(' ')==0){
-					if(p==5&&a==2) alert("aaa");
+				} else if(ptsString[p].charAt(a)=='+' || ptsString[p].charAt(a).indexOf(' ')==0){
 					pts[p]+=tmppts;
 					tmppts=0;
 					pORn=1;
@@ -122,7 +121,7 @@ function canvasDraw1() {
 		//alert(Number(ptsString[p]));
 		//alert(isNaN(ptsString[p]));
 	}
-	alert("1"+String(ptsString[5].charAt(2))+"1"+String(!isNaN(ptsString[5].charAt(2)))+"1"+String(ptsString[5].charAt(2)!=null)+"1"+String(ptsString[5].charAt(2)=="\s")+"1"+String(ptsString[5].charAt(2)!='')+"1"+String(ptsString[5].charAt(2))+"1"+String(ptsString[5].charAt(2).indexOf(' ')));
+	//alert("1"+String(ptsString[5].charAt(2))+"1"+String(!isNaN(ptsString[5].charAt(2)))+"1"+String(ptsString[5].charAt(2)!=null)+"1"+String(ptsString[5].charAt(2)=="\s")+"1"+String(ptsString[5].charAt(2)!='')+"1"+String(ptsString[5].charAt(2))+"1"+String(ptsString[5].charAt(2).indexOf(' ')));
 	//alert(pts+team+'teampts='+teampts);
 	for(var p=0;p<6;p++){
 		teamname[p] = document.getElementById('team'+Number(p+1)).value;
