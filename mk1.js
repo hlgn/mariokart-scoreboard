@@ -5,24 +5,42 @@ document.write("<tr><td></td><td></td><td style=\"text-align:center\">↓</td>")
 for(i=0;i<6;i++)
 	document.write("<td style=\"text-align:center\">↓</td>");
 document.write("</tr>");*/
-document.write("<tr><th>player</th><th>name</th><th>pts</th>");
-for(i=1;i<=6;i++)
-	//document.write("<th><input type=\"text\" style=\"width:5em\"  placeholder=\"Team" +i+ "\" id=\"team" +i+ "\"></th>");
-	document.write("<th><input type=\"text\" style=\"width:5em\" value=\"Team" +i+ "\" id=\"team" +i+ "\" tabindex=\"" +i+ "\"></th>");
-for(i=1;i<=12;i++) {
-	document.write("<tr>");
-    //document.write("<td><input type=\"checkbox\" id=\"status_p" +i+ "1\" value=\"1\" checked=\"checked\"></td>");
-    document.write("<td>p" +i+ "</td>");
-    document.write("<td><canvas id=\"canvas" +i+ "\"></canvas></td>");
-    img_table(i);
-    document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" value=\""+i+"\" tabindex=\"" +(6+i)+ "\"></td>");
-    document.write("<td><input type=\"radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></td>");
-    for(j=2;j<=6;j++)
-    	document.write("<td><input type=\"radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></td>");
-    //document.write("</p>");
-    document.write("</tr>");
+switch (lang) {
+	case 'eng':
+		document.write("<tr><th>player</th><th>name</th><th>pts</th>");
+		for(i=1;i<=6;i++)
+			document.write("<th><input type=\"text\" style=\"width:5em\" value=\"Team" +i+ "\" id=\"team" +i+ "\" tabindex=\"" +i+ "\"></th>");
+		for(i=1;i<=12;i++) {
+			document.write("<tr>");
+    			document.write("<td>p" +i+ "</td>");
+    			document.write("<td><canvas id=\"canvas" +i+ "\"></canvas></td>");
+    			img_table(i);
+    			document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" value=\""+i+"\" tabindex=\"" +(6+i)+ "\"></td>");
+    			document.write("<td><input type=\"radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></td>");
+    			for(j=2;j<=6;j++)
+    				document.write("<td><input type=\"radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></td>");
+    			document.write("</tr>");
+		}
+		document.write("<tr><td></td><td><div style=\"text-align:right\">comment(optional)</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
+		break;
+	case 'jpn':
+		document.write("<tr><th>プレイヤー</th><th>名前</th><th>個人点</th>");
+		for(i=1;i<=6;i++)
+			document.write("<th><input type=\"text\" style=\"width:5em\" value=\"Team" +i+ "\" id=\"team" +i+ "\" tabindex=\"" +i+ "\"></th>");
+		for(i=1;i<=12;i++) {
+			document.write("<tr>");
+    			document.write("<td>p" +i+ "</td>");
+    			document.write("<td><canvas id=\"canvas" +i+ "\"></canvas></td>");
+    			img_table(i);
+    			document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" value=\""+i+"\" tabindex=\"" +(6+i)+ "\"></td>");
+    			document.write("<td><input type=\"radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></td>");
+    			for(j=2;j<=6;j++)
+    				document.write("<td><input type=\"radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></td>");
+    			document.write("</tr>");
+		}
+		document.write("<tr><td></td><td><div style=\"text-align:right\">コメント(任意)</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
+		break;
 }
-document.write("<tr><td></td><td><div style=\"text-align:right\">comment(optional)</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
 document.write("</table>");
 
 function img_table(img_spot) {
