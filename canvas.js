@@ -467,13 +467,13 @@ function canvasDraw1() {
 					case 0:
 						ctx.drawImage(img
 								,img_width*(0.53+margin[display_player]), 0.008*img_height+0.072*img_height*(display_player+1), img_width*(0.255-margin[display_player]), 0.05*img_height
-								,390,37.5+35*player_spot,180-canvasWidth*margin[display_player],20); //画像表示
+								,390,35+35*player_spot,180-canvasWidth*margin[display_player],25); //画像表示
 						break;
 
 					case 1:
 						ctx.drawImage(img
 								,img_width*(0.12+margin[display_player]), 0.127*img_height+0.058*img_height*(display_player+1), img_width*(0.24-margin[display_player]), 0.05*img_height
-								,390,37.5+35*player_spot,180-canvasWidth*margin[display_player],20); //画像表示
+								,390,35+35*player_spot,180-canvasWidth*margin[display_player],25); //画像表示
 						break;
 
 					default:
