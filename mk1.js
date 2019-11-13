@@ -22,7 +22,7 @@ for(i=1;i<=12;i++) {
     //document.write("</p>");
     document.write("</tr>");
 }
-document.write("<tr><td></td><td><div style=\"text-align:right\">comment</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
+document.write("<tr><td></td><td><div style=\"text-align:right\">comment(optional)</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
 document.write("</table>");
 
 function img_table(img_spot) {
