@@ -122,7 +122,7 @@ function canvasDraw1() {
 		//alert(Number(ptsString[p]));
 		//alert(isNaN(ptsString[p]));
 	}
-	//alert("1"+String(ptsString[5].charAt(2))+"1"+String(!isNaN(ptsString[5].charAt(2)))+"1"+String(ptsString[5].charAt(2)!=null)+"1"+String(ptsString[5].charAt(2)=="\s")+"1"+String(ptsString[5].charAt(2)!='')+"1"+String(ptsString[5].charAt(2))+"1"+String(ptsString[5].charAt(2).indexOf(' ')));
+	alert("1"+String(ptsString[5].charAt(2))+"1"+String(!isNaN(ptsString[5].charAt(2)))+"1"+String(ptsString[5].charAt(2)!=null)+"1"+String(ptsString[5].charAt(2)=="\s")+"1"+String(ptsString[5].charAt(2)!='')+"1"+String(ptsString[5].charAt(2))+"1"+String(ptsString[5].charAt(2).indexOf(' ')));
 	//alert(pts+team+'teampts='+teampts);
 	for(var p=0;p<6;p++){
 		teamname[p] = document.getElementById('team'+Number(p+1)).value;
