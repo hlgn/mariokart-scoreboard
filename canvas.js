@@ -124,7 +124,11 @@ function canvasDraw1() {
 	//alert("1"+String(ptsString[5].charAt(2))+"1"+String(!isNaN(ptsString[5].charAt(2)))+"1"+String(ptsString[5].charAt(2)!=null)+"1"+String(ptsString[5].charAt(2)=="\s")+"1"+String(ptsString[5].charAt(2)!='')+"1"+String(ptsString[5].charAt(2))+"1"+String(ptsString[5].charAt(2).indexOf(' ')));
 	//alert(pts+team+'teampts='+teampts);
 	for(var p=0;p<6;p++){
-		teamname[p] = document.getElementById('team'+Number(p+1)).value;
+		teamname[p] = document.getElementById('team'+Number(p+1)).value.trim();
+		margin[p]=0;
+		if(document.getElementById('trim'+Number(p+1)).checked && teamname[p]!='Team'+(p+1)) {
+			margin[p]=marginChecker(teamname[p]);
+		}
 	}
 
 	//alert(teampts);
@@ -461,7 +465,9 @@ function canvasDraw1() {
 
 
 					addPts(player_spot,display_player); //team, rank
-					margin[s]=0;
+					if(margin[s]<0) {
+						margin[s]=0;
+					}
 					//ここをimageStyleで変える!!!!!!!!!!!!!!!!!!!!!!!!!
 					switch(imageStyle) {
 					case 0:
@@ -649,6 +655,98 @@ function addPts(ps,p) { //add player's pts and rank
 		ctx.fillText(String(String(parseInt(rank[p])))+"th",635, 37.5+35*ps+10);
 	}
 }
+
+function marginChecker(str) {
+	var m=0;
+	for (a=0;a<str.length;a++) {
+		if(str.charAt(a).match(/^[a-z]*$/)) {
+			switch(str.charAt(a)) {
+				case 'i':
+				case 'l':
+					m+=0.005;
+					break;
+				case 'j':
+					m+=0.006;
+					break;
+				case 'f':
+				case 't':
+					m+=0.008;
+					break;
+				case 'r':
+					m+=0.009;
+					break;
+				case 'k':
+					m+=0.0115;
+					break;
+				case 'o':
+				case 'p':
+				case 'q':
+					m+=0.0125;
+					break;
+				case 'w':
+					m+=0.016;
+					break;
+				case 'm':
+					m+=0.017;
+					break;
+				default:
+					m+=0.0121;
+					break;
+			}
+		} else if(str.charAt(a).match(/^[A-Z]*$/)) {
+			switch(str.charAt(a)) {
+				case 'I':
+					m+=0.005;
+					break;
+				case 'F':
+				case 'J':
+				case 'L':
+					m+=0.013;
+					break;
+				case 'T':
+				case 'Y':
+					m+=0.014;
+					break;
+				case 'O':
+				case 'H':
+					m+=0.015;
+					break;
+				case 'Q':
+					m+=0.0155;
+					break;
+				case 'M':
+					m+=0.017;
+					break;
+				case 'W':
+					m+=0.019;
+					break;
+				default:
+					m+=0.0145;
+					break;
+			}
+		} else if(str.charAt(a).match(/^[0-9]*$/)) {
+			switch(str.charAt(a)) {
+				case '1':
+					m+=0.007;
+					break;
+				case '7':
+					m+=0.013;
+					break
+				default:
+					m+=0.014;
+					break;
+			}
+		} else {
+			switch(str) {
+				default:
+					m+=-9999;
+					break;
+			}
+		}
+	}
+	return m;
+}
+
 /*
 function addTeam(t) {
 	var spot_rank=1+(t-1)*format;
