@@ -7,7 +7,7 @@ for(i=0;i<6;i++)
 document.write("</tr>");*/
 switch (lang) {
 	case 'eng':
-		document.write("<tr><td style=\"text-align: right\" colspan=\"2\">auto trim team name <br> (available character: <br> A-Z, a-z, Japanese and number)</td><td style=\"text-align: center\">→</td>");
+		document.write("<tr><td style=\"text-align: right\" colspan=\"2\">team name trimmer <br> (available character: <br> A-Z, a-z, Japanese and number)</td><td style=\"text-align: center\">→</td>");
 		for(i=1;i<=6;i++) {
 			document.write("<th><input type=\"checkbox\" id=\"trim" +i+ "\" id=\"trim"+i+"\" tabindex=\"" +i+ "\"></th>");
 		}
