@@ -121,6 +121,19 @@ function canvasDraw1() {
 		//alert(Number(ptsString[p]));
 		//alert(isNaN(ptsString[p]));
 	}
+	if(totalpts%82==0) {
+		if(totalpts/82==1) {
+			document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+(totalpts/82)+" race)";
+		} else {
+			document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+(totalpts/82)+" races)";
+		}
+	} else {
+		if(parseInt(totalpts/82)==0) {
+			document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+parseInt(totalpts/82+1)+" race<span style=\"color:red\"> - "+(82-totalpts%82)+" pts</span>)";
+		} else {
+			document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+parseInt(totalpts/82+1)+" races<span style=\"color:red\"> - "+(82-totalpts%82)+" pts</span>)";
+		}
+	}
 	//alert("1"+String(ptsString[5].charAt(2))+"1"+String(!isNaN(ptsString[5].charAt(2)))+"1"+String(ptsString[5].charAt(2)!=null)+"1"+String(ptsString[5].charAt(2)=="\s")+"1"+String(ptsString[5].charAt(2)!='')+"1"+String(ptsString[5].charAt(2))+"1"+String(ptsString[5].charAt(2).indexOf(' ')));
 	//alert(pts+team+'teampts='+teampts);
 	for(var p=0;p<6;p++){
