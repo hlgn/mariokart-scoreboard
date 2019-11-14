@@ -474,12 +474,21 @@ function canvasDraw1() {
 						ctx.drawImage(img
 								,img_width*(0.532+margin[s]), 0.008*img_height+0.072*img_height*(display_player+1), img_width*(0.255-margin[s]), 0.05*img_height
 								,390,35+35*player_spot,180-canvasWidth*margin[s],25); //画像表示
+							ctx.drawImage(img
+								,img_width*0.712, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.03, 0.05*img_height
+								,390+180*(1-0.075/0.255)-canvasWidth*margin[s],35+35*player_spot,180*(0.03/0.255)+canvasWidth*margin[s],25); //margin
+						ctx.drawImage(img
+								,img_width*0.742, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.045, 0.05*img_height
+								,390+180*(1-0.045/0.255),35+35*player_spot,180*(0.045/0.255),25); //国旗
 						break;
 
 					case 1:
 						ctx.drawImage(img
 								,img_width*(0.12+margin[s]*1.1), 0.127*img_height+0.058*img_height*(display_player+1), img_width*(0.24-margin[s]*1.1), 0.05*img_height
 								,390,35+35*player_spot,180-canvasWidth*margin[s]*1.1,25); //画像表示
+						ctx.drawImage(img
+								,img_width*0.32, 0.127*img_height+0.058*img_height*(display_player+1), img_width*0.04, 0.05*img_height
+								,540-canvasWidth*margin[s]*1.1,35+35*player_spot,30+canvasWidth*margin[s]*1.1,25); //margin
 						break;
 
 					default:
