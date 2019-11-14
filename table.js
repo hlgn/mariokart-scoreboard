@@ -21,9 +21,9 @@ switch (lang) {
     			document.write("<td><canvas id=\"canvas" +i+ "\"></canvas></td>");
     			img_table(i);
     			document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" value=\""+i+"\" tabindex=\"" +(6+i)+ "\"></td>");
-    			document.write("<td><input type=\"radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></td>");
+    			document.write("<td style=\"text-align: center\"><input type=\"radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></td>");
     			for(j=2;j<=6;j++)
-    				document.write("<td><input type=\"radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></td>");
+    				document.write("<td style=\"text-align: center\"><input type=\"radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></td>");
     			document.write("</tr>");
 		}
 		document.write("<tr><td></td><td><div style=\"text-align:right\">comment(optional)</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
