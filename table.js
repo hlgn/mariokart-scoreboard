@@ -29,7 +29,7 @@ switch (lang) {
 		document.write("<tr><td></td><td><div style=\"text-align:right\">comment(optional)</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
 		break;
 	case 'jpn':
-		document.write("<tr><td style=\"text-align: right\" colspan=\"2\">チーム名の自動トリミング <br> (対応文字:英語, 日本語, 数字)</td><td style=\"text-align: center\">→</td>");
+		document.write("<tr><td style=\"text-align: right\" colspan=\"2\">チーム名のトリミング <br> (対応文字:英語, 日本語, 数字)</td><td style=\"text-align: center\">→</td>");
 		for(i=1;i<=6;i++) {
 			document.write("<th><input type=\"checkbox\" id=\"trim" +i+ "\" id=\"trim"+i+"\" tabindex=\"" +i+ "\"></th>");
 		}
