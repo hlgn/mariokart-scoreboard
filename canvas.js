@@ -466,7 +466,7 @@ function canvasDraw1() {
 					switch(imageStyle) {
 					case 0:
 						ctx.drawImage(img
-								,img_width*(0.532+margin[display_player]), 0.008*img_height+0.072*img_height*(display_player+1), img_width*(0.255-margin[s]), 0.05*img_height
+								,img_width*(0.532+margin[s]), 0.008*img_height+0.072*img_height*(display_player+1), img_width*(0.255-margin[s]), 0.05*img_height
 								,390,35+35*player_spot,180-canvasWidth*margin[s],25); //画像表示
 						break;
 
