@@ -758,6 +758,9 @@ function marginChecker(str) {
 					m+=0.014;
 					break;
 			}
+		} else if(str.charAt(a).match(/^[あ-ー]*$/)) {
+			alert("kana");
+			m+=0.0175;
 		} else {
 			switch(str) {
 				default:
