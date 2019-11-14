@@ -9,7 +9,7 @@ switch (lang) {
 	case 'eng':
 		document.write("<tr><td style=\"text-align: right\" colspan=\"2\">team name trimmer <br> (available character: <br> A-Z, a-z, Japanese and number)</td><td style=\"text-align: center\">→</td>");
 		for(i=1;i<=6;i++) {
-			document.write("<th><input type=\"checkbox\" id=\"trim" +i+ "\" id=\"trim"+i+"\" tabindex=\"" +i+ "\"></th>");
+			document.write("<th><input type=\"checkbox\" id=\"trim" +i+ "\" checked=\"checked\" tabindex=\"" +i+ "\"></th>");
 		}
 		document.write("</tr>");
 		document.write("<tr><th>player</th><th>name</th><th>pts</th>");
@@ -31,7 +31,7 @@ switch (lang) {
 	case 'jpn':
 		document.write("<tr><td style=\"text-align: right\" colspan=\"2\">チーム名のトリミング <br> (対応文字:英語, 日本語, 数字)</td><td style=\"text-align: center\">→</td>");
 		for(i=1;i<=6;i++) {
-			document.write("<th><input type=\"checkbox\" id=\"trim" +i+ "\" id=\"trim"+i+"\" tabindex=\"" +i+ "\"></th>");
+			document.write("<th><input type=\"checkbox\" id=\"trim" +i+ "\" checked=\"checked\" tabindex=\"" +i+ "\"></th>");
 		}
 		document.write("</tr>");
 		document.write("<tr><th>プレイヤー</th><th>名前</th><th>個人点</th>");
