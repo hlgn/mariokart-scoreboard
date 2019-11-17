@@ -20,7 +20,7 @@ switch (lang) {
     			document.write("<td>p" +i+ "</td>");
     			document.write("<td><canvas id=\"canvas" +i+ "\"></canvas></td>");
     			img_table(i);
-    			document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" value=\""+i+"\" tabindex=\"" +(6+i)+ "\"></td>");
+    			document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" tabindex=\"" +(6+i)+ "\"></td>");
     			document.write("<td><label><input type=\"radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
     			for(j=2;j<=6;j++)
     				document.write("<td><label><input type=\"radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></label></td>");
@@ -42,7 +42,7 @@ switch (lang) {
     			document.write("<td>p" +i+ "</td>");
     			document.write("<td><canvas id=\"canvas" +i+ "\"></canvas></td>");
     			img_table(i);
-    			document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" value=\""+i+"\" tabindex=\"" +(6+i)+ "\"></td>");
+    			document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" tabindex=\"" +(6+i)+ "\"></td>");
     			document.write("<td><label><input type=\"radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
     			for(j=2;j<=6;j++)
     				document.write("<td><label><input type=\"radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></label></td>");
