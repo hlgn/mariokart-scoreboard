@@ -1,5 +1,5 @@
 var i, j;
-document.write("<table>");
+document.write("<table class=\"table1\">");
 /*document.write("<tr><td></td><td></td><td style=\"text-align:center\">(4)<br>input<br>player<br>points</td><td style=\"text-align:center\" colspan=\"6\">(3) input team name</td></tr>");
 document.write("<tr><td></td><td></td><td style=\"text-align:center\">↓</td>");
 for(i=0;i<6;i++)
@@ -9,7 +9,7 @@ switch (lang) {
 	case 'eng':
 		document.write("<tr><td style=\"text-align: right\" colspan=\"2\">team name trimmer <br> (available character: <br> A-Z, a-z, Japanese and number)</td><td style=\"text-align: center\">→</td>");
 		for(i=1;i<=6;i++) {
-			document.write("<th><input type=\"checkbox\" id=\"trim" +i+ "\" checked=\"checked\" tabindex=\"" +i+ "\"></th>");
+			document.write("<th><input type=\"checkbox\" id=\"trim" +i+ "\" checked=\"checked\"></th>");
 		}
 		document.write("</tr>");
 		document.write("<tr><th>player</th><th>name</th><th>pts</th>");
