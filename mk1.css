@@ -35,6 +35,14 @@ body {
 	vertical-align:-100%;
 }
 
+.table1 tr:nth-child(even) {
+	background: #eee;
+}
+.table1 tr:hover {
+	background: #ff0;
+}
+
+
 #blank {
 	padding-bottom: 200px;
 	/*background-color: rgba(33, 39, 98, 0);*/
