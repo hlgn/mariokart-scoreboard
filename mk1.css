@@ -41,6 +41,7 @@ body {
 }
 .table1 td {
 	text-align: center;
+}
 .table1 tr:nth-child(even) {
 	background: #eee;
 }
