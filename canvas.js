@@ -67,8 +67,8 @@ file.addEventListener('change', loadLocalImage, false);
 function canvasDraw1() {
 	var p, q, a, tmppts, pORn, infinite;
 	var totalpts=0;
-    var downloadLink = document.getElementById('download_link');
-    var filename = 'mkr'+today.getFullYear()+(today.getMonth()+1)+today.getDate()+'.png';
+	var downloadLink = document.getElementById('download_link');
+	var filename = 'mkr'+today.getFullYear()+(today.getMonth()+1)+today.getDate()+'.png';
 	teampts = [0,0,0,0,0,0]; //initiallization of teampts
 	//get elements by HTML
 	var element_radio, imageStyle;
@@ -96,14 +96,14 @@ function canvasDraw1() {
 					pORn=-1;
 				} else {
 					switch (lang) {
-						case 'eng':
-							alert('player'+(p+1)+' - pts\nincluded \''+ptsString[p].charAt(a)+'\' (in \"'+ptsString[p]+'\")\nYou can only use number, \'+\' and \'-\'');
-							break;
-						case 'jpn':
-							alert('player'+(p+1)+'の個人点の \"'+ptsString[p]+'\"の中に\''+ptsString[p].charAt(a)+'\'が含まれています\n数字と \'+\'、 \'-\'のみを使用してください');
-							break;
+					case 'eng':
+						alert('player'+(p+1)+' - pts\nincluded \''+ptsString[p].charAt(a)+'\' (in \"'+ptsString[p]+'\")\nYou can only use number, \'+\' and \'-\'');
+						break;
+					case 'jpn':
+						alert('player'+(p+1)+'の個人点の \"'+ptsString[p]+'\"の中に\''+ptsString[p].charAt(a)+'\'が含まれています\n数字と \'+\'、 \'-\'のみを使用してください');
+						break;
 					}
-							return;
+					return;
 				}
 			}
 			pts[p]+=tmppts;
@@ -122,28 +122,28 @@ function canvasDraw1() {
 		//alert(isNaN(ptsString[p]));
 	}
 	switch (lang) {
-		case 'eng':
-			if(totalpts%82==0) {
-				if(totalpts/82==1) {
-					document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+(totalpts/82)+" race)";
-				} else {
-					document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+(totalpts/82)+" races)";
-				}
+	case 'eng':
+		if(totalpts%82==0) {
+			if(totalpts/82==1) {
+				document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+(totalpts/82)+" race)";
 			} else {
-				if(parseInt(totalpts/82)==0) {
-					document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+parseInt(totalpts/82+1)+" race<span style=\"color:red\"> - "+(82-totalpts%82)+" pts</span>)";
-				} else {
-					document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+parseInt(totalpts/82+1)+" races<span style=\"color:red\"> - "+(82-totalpts%82)+" pts</span>)";
-				}
+				document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+(totalpts/82)+" races)";
 			}
-		case 'jpn':
-			if(totalpts%82==0) {
-				document.getElementById('total').innerHTML=totalpts+"点 (12人 : "+(totalpts/82)+"レース)";
+		} else {
+			if(parseInt(totalpts/82)==0) {
+				document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+parseInt(totalpts/82+1)+" race<span style=\"color:red\"> - "+(82-totalpts%82)+" pts</span>)";
 			} else {
-				document.getElementById('total').innerHTML=totalpts+"点 (12人 : "+parseInt(totalpts/82+1)+"レース<span style=\"color:red\"> - "+(82-totalpts%82)+"点</span>)";	
+				document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+parseInt(totalpts/82+1)+" races<span style=\"color:red\"> - "+(82-totalpts%82)+" pts</span>)";
 			}
+		}
+	case 'jpn':
+		if(totalpts%82==0) {
+			document.getElementById('total').innerHTML=totalpts+"点 (12人 : "+(totalpts/82)+"レース)";
+		} else {
+			document.getElementById('total').innerHTML=totalpts+"点 (12人 : "+parseInt(totalpts/82+1)+"レース<span style=\"color:red\"> - "+(82-totalpts%82)+"点</span>)";	
+		}
 	}
-	
+
 	//alert("1"+String(ptsString[5].charAt(2))+"1"+String(!isNaN(ptsString[5].charAt(2)))+"1"+String(ptsString[5].charAt(2)!=null)+"1"+String(ptsString[5].charAt(2)=="\s")+"1"+String(ptsString[5].charAt(2)!='')+"1"+String(ptsString[5].charAt(2))+"1"+String(ptsString[5].charAt(2).indexOf(' ')));
 	//alert(pts+team+'teampts='+teampts);
 	for(var p=0;p<6;p++){
@@ -261,7 +261,7 @@ function canvasDraw1() {
 		ctx.fillStyle = color[style][6];
 		ctx.fillRect(610, 0, 50, 30);
 
-/*
+		/*
 		ctx.fillStyle = "#f5f5f5";
 		ctx.fillRect(0, 30, 80, 420);
 		ctx.fillStyle = "#dcdcdc"
@@ -276,7 +276,7 @@ function canvasDraw1() {
 		ctx.fillRect(580, 30, 30, 420);
 		ctx.fillStyle = "#f5f5f5"
 		ctx.fillRect(610, 30, 50, 420);
-		*/
+		 */
 		addText();
 
 		var drawVerticalLine = function() {
@@ -368,69 +368,70 @@ function canvasDraw1() {
 			for(i=0;i<12;i++){
 				if(team[i]==s) numofplayer++;
 			}
-			//add background
-			/*ここで背景色をいれる*/
-			if(numofteam%2==0) {
-				color1=color[style][12];
-				color2=color[style][13];
-			} else {
-				color1=color[style][13];
-				color2=color[style][14];
-			}
-			ctx.fillStyle = color1;
-			ctx.fillRect(0, 37.5+35*(player_spot-0.5)+10, 80, 35*numofplayer);
-			ctx.fillStyle = color2;
-			ctx.fillRect(80, 37.5+35*(player_spot-0.5)+10, 100, 35*numofplayer);
-			ctx.fillStyle = color1;
-			ctx.fillRect(180, 37.5+35*(player_spot-0.5)+10, 60, 35*numofplayer);
-			ctx.fillStyle = color2;
-			ctx.fillRect(240, 37.5+35*(player_spot-0.5)+10, 140, 35*numofplayer);
-			ctx.fillStyle = color1;
-			ctx.fillRect(380, 37.5+35*(player_spot-0.5)+10, 200, 35*numofplayer);
-			ctx.fillStyle = color2;
-			ctx.fillRect(580, 37.5+35*(player_spot-0.5)+10, 30, 35*numofplayer);
-			ctx.fillStyle = color1;
-			ctx.fillRect(610, 37.5+35*(player_spot-0.5)+10, 50, 35*numofplayer);
-			//add team name, pts, diff_pts, holizontal line and rank
-			ctx.textAlign = 'center';
-			ctx.textBaseline = 'middle';
-			//-add team name
-			//ctx.font = "30px "+selectfont;
-			if(numofplayer>=6) ctx.font = "38px "+selectfont;
-			else ctx.font = (20+numofplayer*3)+"px "+selectfont;
-			//ctx.font = "40px fantasy";
-			ctx.fillStyle = color[style][7];
-			ctx.fillText(teamname[s],310, 37.5+35*(2*player_spot+numofplayer-1)/2+10, 140);
-			ctx.lineWidth = 0.75;
-			ctx.strokeStyle = color[style][8];
-			ctx.strokeText(teamname[s],310, 37.5+35*(2*player_spot+numofplayer-1)/2+10, 140);
-			//-add team pts
-			if(numofplayer>=6) ctx.font = "38px "+selectfont;
-			else ctx.font = (20+numofplayer*3)+"px "+selectfont;
-			ctx.fillStyle = color[style][7];
-			ctx.fillText(teampts[s],130, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
-			ctx.lineWidth = 0.75;
-			ctx.strokeStyle = color[style][8];
-			ctx.strokeText(teampts[s],130, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
-			//-add team diff_pts and holizontal line
-			if(numofplayer>=6) ctx.font = "26px "+selectfont;
-			else ctx.font = (13+numofplayer*2)+"px "+selectfont;
-			if(previouspts==-1) { //displayed top
-				//--add diff_pts
+			if(numofplayer){
+				//add background
+				/*ここで背景色をいれる*/
+				if(numofteam%2==0) {
+					color1=color[style][12];
+					color2=color[style][13];
+				} else {
+					color1=color[style][13];
+					color2=color[style][14];
+				}
+				ctx.fillStyle = color1;
+				ctx.fillRect(0, 37.5+35*(player_spot-0.5)+10, 80, 35*numofplayer);
+				ctx.fillStyle = color2;
+				ctx.fillRect(80, 37.5+35*(player_spot-0.5)+10, 100, 35*numofplayer);
+				ctx.fillStyle = color1;
+				ctx.fillRect(180, 37.5+35*(player_spot-0.5)+10, 60, 35*numofplayer);
+				ctx.fillStyle = color2;
+				ctx.fillRect(240, 37.5+35*(player_spot-0.5)+10, 140, 35*numofplayer);
+				ctx.fillStyle = color1;
+				ctx.fillRect(380, 37.5+35*(player_spot-0.5)+10, 200, 35*numofplayer);
+				ctx.fillStyle = color2;
+				ctx.fillRect(580, 37.5+35*(player_spot-0.5)+10, 30, 35*numofplayer);
+				ctx.fillStyle = color1;
+				ctx.fillRect(610, 37.5+35*(player_spot-0.5)+10, 50, 35*numofplayer);
+				//add team name, pts, diff_pts, holizontal line and rank
+				ctx.textAlign = 'center';
+				ctx.textBaseline = 'middle';
+				//-add team name
+				//ctx.font = "30px "+selectfont;
+				if(numofplayer>=6) ctx.font = "38px "+selectfont;
+				else ctx.font = (20+numofplayer*3)+"px "+selectfont;
+				//ctx.font = "40px fantasy";
 				ctx.fillStyle = color[style][7];
-				ctx.fillText('-',210, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
+				ctx.fillText(teamname[s],310, 37.5+35*(2*player_spot+numofplayer-1)/2+10, 140);
 				ctx.lineWidth = 0.75;
 				ctx.strokeStyle = color[style][8];
-				ctx.strokeText('-',210, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
-			} else {
-				//--add diff_pts
+				ctx.strokeText(teamname[s],310, 37.5+35*(2*player_spot+numofplayer-1)/2+10, 140);
+				//-add team pts
+				if(numofplayer>=6) ctx.font = "38px "+selectfont;
+				else ctx.font = (20+numofplayer*3)+"px "+selectfont;
 				ctx.fillStyle = color[style][7];
-				ctx.fillText(Number(teampts[s])-previouspts,210, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
+				ctx.fillText(teampts[s],130, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
 				ctx.lineWidth = 0.75;
 				ctx.strokeStyle = color[style][8];
-				ctx.strokeText(Number(teampts[s])-previouspts,210, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
-				//--add holizontal line
-				/*
+				ctx.strokeText(teampts[s],130, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
+				//-add team diff_pts and holizontal line
+				if(numofplayer>=6) ctx.font = "26px "+selectfont;
+				else ctx.font = (13+numofplayer*2)+"px "+selectfont;
+				if(previouspts==-1) { //displayed top
+					//--add diff_pts
+					ctx.fillStyle = color[style][7];
+					ctx.fillText('-',210, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
+					ctx.lineWidth = 0.75;
+					ctx.strokeStyle = color[style][8];
+					ctx.strokeText('-',210, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
+				} else {
+					//--add diff_pts
+					ctx.fillStyle = color[style][7];
+					ctx.fillText(Number(teampts[s])-previouspts,210, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
+					ctx.lineWidth = 0.75;
+					ctx.strokeStyle = color[style][8];
+					ctx.strokeText(Number(teampts[s])-previouspts,210, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
+					//--add holizontal line
+					/*
 				ctx.strokeStyle = color[style][11];
 				ctx.lineWidth = 2;
 				ctx.beginPath();
@@ -438,93 +439,94 @@ function canvasDraw1() {
 				ctx.lineTo(canvasWidth, 37.5+35*(player_spot-0.5)+10);
 				ctx.closePath();
 				ctx.stroke();
-				*/
-				/*
+					 */
+					/*
 				ctx.fillStyle = "#f5f5f5";
 				ctx.fillRect(0, 240, canvasWidth, 210);
 				alert("a");
-				*/
-			}
-			//-add team rank
-			if(numofplayer>=6) ctx.font = "31px "+selectfont;
-			else ctx.font = (16+numofplayer*2.5)+"px "+selectfont;
-			if(parseInt(teamrank[s])==1) {
-				ctx.fillStyle = '#dbb400'; //gold
-				ctx.fillText(String(parseInt(teamrank[s]))+"st",40, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
-			}
-			else if(parseInt(teamrank[s])==2) {
-				ctx.fillStyle = '#c9caca'; //silver
-				ctx.fillText(String(parseInt(teamrank[s]))+"nd",40, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
-			}
-			else if(parseInt(teamrank[s])==3) {
-				ctx.fillStyle = '#c47022'; //bronze
-				ctx.fillText(String(parseInt(teamrank[s]))+"rd",40, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
-			}
-			else {
-				ctx.fillStyle = color[style][7];
-				ctx.fillText(String(String(parseInt(teamrank[s])))+"th",40, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
-			}
-
-
-
-
-
-
-			//in descending ordor
-			for(i=0;i<12;i++){
-				maxpts=-9999;
-				display_player=-1;
-				for(p=0;p<12;p++){
-					if(team[p]==s && displayed[p]==0){
-						if(maxpts<pts[p]) {
-							maxpts=pts[p];
-							display_player=p;
-						}
-					}
-
+					 */
 				}
-				if(display_player!=-1) { //チーム内全員がすでに表示されていればスルー
-					displayed[display_player]=1;
+				//-add team rank
+				if(numofplayer>=6) ctx.font = "31px "+selectfont;
+				else ctx.font = (16+numofplayer*2.5)+"px "+selectfont;
+				if(parseInt(teamrank[s])==1) {
+					ctx.fillStyle = '#dbb400'; //gold
+					ctx.fillText(String(parseInt(teamrank[s]))+"st",40, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
+				}
+				else if(parseInt(teamrank[s])==2) {
+					ctx.fillStyle = '#c9caca'; //silver
+					ctx.fillText(String(parseInt(teamrank[s]))+"nd",40, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
+				}
+				else if(parseInt(teamrank[s])==3) {
+					ctx.fillStyle = '#c47022'; //bronze
+					ctx.fillText(String(parseInt(teamrank[s]))+"rd",40, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
+				}
+				else {
+					ctx.fillStyle = color[style][7];
+					ctx.fillText(String(String(parseInt(teamrank[s])))+"th",40, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
+				}
 
 
-					addPts(player_spot,display_player); //team, rank
-					if(margin[s]<0) {
-						margin[s]=0;
-					}
-					//ここをimageStyleで変える!!!!!!!!!!!!!!!!!!!!!!!!!
-					switch(imageStyle) {
-					case 0:
-						ctx.drawImage(img
-								,img_width*0.527, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.255, 0.05*img_height
-								,390,35+35*player_spot,180,25); //画像表示
-						ctx.drawImage(img
-								,img_width*(0.532+margin[s]), 0.008*img_height+0.072*img_height*(display_player+1), img_width*(0.255-margin[s]), 0.05*img_height
-								,4+390,35+35*player_spot,180-canvasWidth*margin[s],25); //画像表示
-						ctx.drawImage(img
-								,img_width*0.712, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.03, 0.05*img_height
-								,4+390+180*(1-0.075/0.255)-canvasWidth*margin[s],35+35*player_spot,180*(0.03/0.255)+canvasWidth*margin[s],25); //margin
-						ctx.drawImage(img
-								,img_width*0.742, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.045, 0.05*img_height
-								,4+390+180*(1-0.045/0.255),35+35*player_spot,180*(0.045/0.255),25); //国旗
-						break;
-
-					case 1:
-						ctx.drawImage(img
-								,img_width*(0.12+margin[s]*1.1), 0.127*img_height+0.058*img_height*(display_player+1), img_width*(0.24-margin[s]*1.1), 0.05*img_height
-								,390,35+35*player_spot,180-canvasWidth*margin[s]*1.1,25); //画像表示
-						ctx.drawImage(img
-								,img_width*0.32, 0.127*img_height+0.058*img_height*(display_player+1), img_width*0.04, 0.05*img_height
-								,540-canvasWidth*margin[s]*1.1,35+35*player_spot,30+canvasWidth*margin[s]*1.1,25); //margin
-						break;
-
-					default:
-						break;
 
 
+
+
+				//in descending ordor
+				for(i=0;i<12;i++){
+					maxpts=-9999;
+					display_player=-1;
+					for(p=0;p<12;p++){
+						if(team[p]==s && displayed[p]==0){
+							if(maxpts<pts[p]) {
+								maxpts=pts[p];
+								display_player=p;
+							}
+						}
 
 					}
+					if(display_player!=-1) { //チーム内全員がすでに表示されていればスルー
+						displayed[display_player]=1;
 
-					player_spot++;
+
+						addPts(player_spot,display_player); //team, rank
+						if(margin[s]<0) {
+							margin[s]=0;
+						}
+						//ここをimageStyleで変える!!!!!!!!!!!!!!!!!!!!!!!!!
+						switch(imageStyle) {
+						case 0:
+							ctx.drawImage(img
+									,img_width*0.527, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.255, 0.05*img_height
+									,390,35+35*player_spot,180,25); //画像表示
+							ctx.drawImage(img
+									,img_width*(0.532+margin[s]), 0.008*img_height+0.072*img_height*(display_player+1), img_width*(0.255-margin[s]), 0.05*img_height
+									,4+390,35+35*player_spot,180-canvasWidth*margin[s],25); //画像表示
+							ctx.drawImage(img
+									,img_width*0.712, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.03, 0.05*img_height
+									,4+390+180*(1-0.075/0.255)-canvasWidth*margin[s],35+35*player_spot,180*(0.03/0.255)+canvasWidth*margin[s],25); //margin
+							ctx.drawImage(img
+									,img_width*0.742, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.045, 0.05*img_height
+									,4+390+180*(1-0.045/0.255),35+35*player_spot,180*(0.045/0.255),25); //国旗
+							break;
+
+						case 1:
+							ctx.drawImage(img
+									,img_width*(0.12+margin[s]*1.1), 0.127*img_height+0.058*img_height*(display_player+1), img_width*(0.24-margin[s]*1.1), 0.05*img_height
+									,390,35+35*player_spot,180-canvasWidth*margin[s]*1.1,25); //画像表示
+							ctx.drawImage(img
+									,img_width*0.32, 0.127*img_height+0.058*img_height*(display_player+1), img_width*0.04, 0.05*img_height
+									,540-canvasWidth*margin[s]*1.1,35+35*player_spot,30+canvasWidth*margin[s]*1.1,25); //margin
+							break;
+
+						default:
+							break;
+
+
+
+						}
+
+						player_spot++;
+					}
 				}
 			}
 			return Number(teampts[s]);
@@ -581,7 +583,7 @@ function canvasDraw1() {
 			//ctx.strokeText("50",210, 37.5+35*(spot_rank-1.5)+10);
 
 		};
-		*/
+		 */
 
 
 		var player_spot=0; //spot in table (considered team rank)
@@ -617,19 +619,19 @@ function canvasDraw1() {
 		}*/
 	}
 
-    var button = document.getElementById('download_button');
-    button.addEventListener('click', function(){
+	var button = document.getElementById('download_button');
+	button.addEventListener('click', function(){
 
-        if (canvas.msToBlob) {
-            var blob = canvas.msToBlob();
-            window.navigator.msSaveBlob(blob, filename);
-        } else {
-            downloadLink.href = canvas.toDataURL('image/png');
-            downloadLink.download = filename;
-            downloadLink.click();
-        }
+		if (canvas.msToBlob) {
+			var blob = canvas.msToBlob();
+			window.navigator.msSaveBlob(blob, filename);
+		} else {
+			downloadLink.href = canvas.toDataURL('image/png');
+			downloadLink.download = filename;
+			downloadLink.click();
+		}
 
-    });
+	});
 }
 
 function addText() {
@@ -696,91 +698,91 @@ function marginChecker(str) {
 	for (a=0;a<str.length;a++) {
 		if(str.charAt(a).match(/^[a-z]*$/)) {
 			switch(str.charAt(a)) {
-				case 'i':
-				case 'l':
-					m+=0.005;
-					break;
-				case 'j':
-					m+=0.006;
-					break;
-				case 'f':
-				case 't':
-					m+=0.008;
-					break;
-				case 'r':
-					m+=0.009;
-					break;
-				case 'k':
-					m+=0.0115;
-					break;
-				case 'o':
-				case 'p':
-				case 'q':
-					m+=0.0125;
-					break;
-				case 'w':
-					m+=0.016;
-					break;
-				case 'm':
-					m+=0.017;
-					break;
-				default:
-					m+=0.0121;
-					break;
+			case 'i':
+			case 'l':
+				m+=0.005;
+				break;
+			case 'j':
+				m+=0.006;
+				break;
+			case 'f':
+			case 't':
+				m+=0.008;
+				break;
+			case 'r':
+				m+=0.009;
+				break;
+			case 'k':
+				m+=0.0115;
+				break;
+			case 'o':
+			case 'p':
+			case 'q':
+				m+=0.0125;
+				break;
+			case 'w':
+				m+=0.016;
+				break;
+			case 'm':
+				m+=0.017;
+				break;
+			default:
+				m+=0.0121;
+			break;
 			}
 		} else if(str.charAt(a).match(/^[A-Z]*$/)) {
 			switch(str.charAt(a)) {
-				case 'I':
-					m+=0.005;
-					break;
-				case 'F':
-				case 'J':
-				case 'L':
-					m+=0.013;
-					break;
-				case 'T':
-				case 'Y':
-					m+=0.014;
-					break;
-				case 'O':
-				case 'H':
-					m+=0.015;
-					break;
-				case 'Q':
-					m+=0.0155;
-					break;
-				case 'M':
-					m+=0.017;
-					break;
-				case 'W':
-					m+=0.019;
-					break;
-				default:
-					m+=0.0145;
-					break;
+			case 'I':
+				m+=0.005;
+				break;
+			case 'F':
+			case 'J':
+			case 'L':
+				m+=0.013;
+				break;
+			case 'T':
+			case 'Y':
+				m+=0.014;
+				break;
+			case 'O':
+			case 'H':
+				m+=0.015;
+				break;
+			case 'Q':
+				m+=0.0155;
+				break;
+			case 'M':
+				m+=0.017;
+				break;
+			case 'W':
+				m+=0.019;
+				break;
+			default:
+				m+=0.0145;
+			break;
 			}
 		} else if(str.charAt(a).match(/^[0-9]*$/)) {
 			switch(str.charAt(a)) {
-				case '1':
-					m+=0.007;
-					break;
-				case '7':
-					m+=0.013;
-					break
-				default:
-					m+=0.014;
-					break;
+			case '1':
+				m+=0.007;
+				break;
+			case '7':
+				m+=0.013;
+				break
+			default:
+				m+=0.014;
+				break;
 			}
 		} else if(str.charAt(a).match(/^[あ-ー]*$/)) {
 			m+=0.0175;
 		} else {
 			switch(str.charAt(a)) {
-				case '\'':
-					m+=0.004;
-					break;
-				default:
-					m+=-9999;
-					break;
+			case '\'':
+				m+=0.004;
+				break;
+			default:
+				m+=-9999;
+			break;
 			}
 		}
 	}
@@ -796,4 +798,4 @@ function addTeam(t) {
 	ctx.fillStyle = '#000';
 	ctx.fillText(String(t),70+10, 37.5+35*(format*2+0.5-1)+10);
 }
-*/
+ */
