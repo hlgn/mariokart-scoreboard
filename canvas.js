@@ -495,14 +495,17 @@ function canvasDraw1() {
 					switch(imageStyle) {
 					case 0:
 						ctx.drawImage(img
+								,img_width*0.527, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.255, 0.05*img_height
+								,390,35+35*player_spot,180,25); //画像表示
+						ctx.drawImage(img
 								,img_width*(0.532+margin[s]), 0.008*img_height+0.072*img_height*(display_player+1), img_width*(0.255-margin[s]), 0.05*img_height
-								,390,35+35*player_spot,180-canvasWidth*margin[s],25); //画像表示
-							ctx.drawImage(img
+								,4+390,35+35*player_spot,180-canvasWidth*margin[s],25); //画像表示
+						ctx.drawImage(img
 								,img_width*0.712, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.03, 0.05*img_height
-								,390+180*(1-0.075/0.255)-canvasWidth*margin[s],35+35*player_spot,180*(0.03/0.255)+canvasWidth*margin[s],25); //margin
+								,4+390+180*(1-0.075/0.255)-canvasWidth*margin[s],35+35*player_spot,180*(0.03/0.255)+canvasWidth*margin[s],25); //margin
 						ctx.drawImage(img
 								,img_width*0.742, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.045, 0.05*img_height
-								,390+180*(1-0.045/0.255),35+35*player_spot,180*(0.045/0.255),25); //国旗
+								,4+390+180*(1-0.045/0.255),35+35*player_spot,180*(0.045/0.255),25); //国旗
 						break;
 
 					case 1:
@@ -769,10 +772,12 @@ function marginChecker(str) {
 					break;
 			}
 		} else if(str.charAt(a).match(/^[あ-ー]*$/)) {
-			alert("kana");
 			m+=0.0175;
 		} else {
-			switch(str) {
+			switch(str.charAt(a)) {
+				case '\'':
+					m+=0.004;
+					break;
 				default:
 					m+=-9999;
 					break;
