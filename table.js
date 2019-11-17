@@ -9,7 +9,7 @@ switch (lang) {
 	case 'eng':
 		document.write("<tr><td style=\"text-align: right\" colspan=\"2\">team name trimmer <br> (available character: <br> A-Z, a-z, Japanese and number)</td><td style=\"text-align: center\">→</td>");
 		for(i=1;i<=6;i++) {
-			document.write("<th><input type=\"checkbox\" id=\"trim" +i+ "\" checked=\"checked\"></th>");
+			document.write("<td><input type=\"checkbox\" id=\"trim" +i+ "\" checked=\"checked\"></td>");
 		}
 		document.write("</tr>");
 		document.write("<tr><th>player</th><th>name</th><th>pts</th>");
