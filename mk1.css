@@ -35,11 +35,17 @@ body {
 	vertical-align:-100%;
 }
 
+.table1 th {
+	text-align: center;
+	background-color: #c0c0c0;
+}
+.table1 td {
+	text-align: center;
 .table1 tr:nth-child(even) {
 	background: #eee;
 }
 .table1 tr:hover {
-	background: #ff0;
+	background: #a9a9a9;
 }
 
 
