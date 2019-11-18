@@ -3,6 +3,7 @@ var canvas = document.getElementById('canvas_result');
 var canvasWidth = 660;
 var canvasHeight = 550;
 var uploadImgSrc;
+var selectfont="游ゴシック体";
 var ptsString = new Array(12); //player's points(string)
 var pts = new Array(12); //player's points(Number)
 var rank = new Array(12); //player's rank
