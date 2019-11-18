@@ -3,14 +3,14 @@
   https://hlgn.github.io/mariokart-scoreboard/
  
 # Features
-  Installed:
-    -make scoreboard by result image
-    -auto trimming team tag
-    -display total points (and the points missing)
+  Installed:  
+    -make scoreboard by result image  
+    -auto trimming team tag  
+    -display total points (and the points missing)  
     
-  Not yet installed:
-    -make scoreboard by text
-    -using ocr for players' points
+  Not yet installed:  
+    -make scoreboard by text  
+    -using ocr for players' points  
  
 
 # Usage
