@@ -16,9 +16,9 @@ switch (lang) {
     			document.write("<td><canvas id=\"canvas" +i+ "\"></canvas></td>");
     			img_table(i);
     			document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" tabindex=\"" +(6+i)+ "\"></td>");
-    			document.write("<td><label><input type=\"radio\" class=\"label_radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
+    			document.write("<td><label class=\"label_radio\"><input type=\"radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
     			for(j=2;j<=6;j++)
-    				document.write("<td><label><input type=\"radio\" class=\"label_radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></label></td>");
+    				document.write("<td><label class=\"label_radio\"><input type=\"radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></label></td>");
     			document.write("</tr>");
 		}
 		document.write("<tr><td></td><td><div style=\"text-align:right\">comment(optional)</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
@@ -38,9 +38,9 @@ switch (lang) {
     			document.write("<td><canvas id=\"canvas" +i+ "\"></canvas></td>");
     			img_table(i);
     			document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" tabindex=\"" +(6+i)+ "\"></td>");
-    			document.write("<td><label><input type=\"radio\" class=\"label_radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
+    			document.write("<td><label class=\"label_radio\"><input type=\"radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
     			for(j=2;j<=6;j++)
-    				document.write("<td><label><input type=\"radio\" class=\"label_radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></label></td>");
+    				document.write("<td><label class=\"label_radio\"><input type=\"radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></label></td>");
     			document.write("</tr>");
 		}
 		document.write("<tr><td></td><td><div style=\"text-align:right\">コメント(任意)</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
