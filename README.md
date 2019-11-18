@@ -33,7 +33,7 @@
   * numbers
     * 0-9
   * others
-    * "'", " "
+    * '
  
 # Author
  hlgn  
