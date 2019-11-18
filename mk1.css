@@ -52,8 +52,11 @@ body {
 	width: 100%;
 	height: 100%;
 }
-.check{
+.check_eng {
 	height: 3em;
+}
+.check_jpn {
+	height: 2em;
 }
 .table1 tr:nth-child(even) {
 	background: #eee;
