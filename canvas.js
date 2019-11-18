@@ -1,5 +1,3 @@
-
-//alert('a');
 var file = document.getElementById('file');
 var canvas = document.getElementById('canvas_result');
 var canvasWidth = 660;
@@ -18,8 +16,6 @@ var displayed = new Array(12); //already displayed = 1, not yet = 0
 var margin = new Array(12);
 
 
-//var selectfont="HG行書体";
-var selectfont="游ゴシック体";
 var today = new Date();
 var style=0; //0:wa, 1:
 /* color[style][x]
@@ -117,9 +113,6 @@ function canvasDraw1() {
 		}
 		teampts[team[p]]+=pts[p];
 		totalpts+=pts[p];
-		//alert(ptsString[p]);
-		//alert(Number(ptsString[p]));
-		//alert(isNaN(ptsString[p]));
 	}
 	switch (lang) {
 	case 'eng':
@@ -144,8 +137,6 @@ function canvasDraw1() {
 		}
 	}
 
-	//alert("1"+String(ptsString[5].charAt(2))+"1"+String(!isNaN(ptsString[5].charAt(2)))+"1"+String(ptsString[5].charAt(2)!=null)+"1"+String(ptsString[5].charAt(2)=="\s")+"1"+String(ptsString[5].charAt(2)!='')+"1"+String(ptsString[5].charAt(2))+"1"+String(ptsString[5].charAt(2).indexOf(' ')));
-	//alert(pts+team+'teampts='+teampts);
 	for(var p=0;p<6;p++){
 		teamname[p] = document.getElementById('team'+Number(p+1)).value.trim();
 		margin[p]=0;
@@ -153,12 +144,7 @@ function canvasDraw1() {
 			margin[p]=marginChecker(teamname[p]);
 		}
 	}
-
-	//alert(teampts);
-	//alert(teamname);
-	//alert(totalpts);
-
-
+	
 	//player rank
 	rank=[0,0,0,0,0,0,0,0,0,0,0,0];
 	infinite=0;
@@ -193,7 +179,6 @@ function canvasDraw1() {
 		}
 
 	}
-	//alert('rank = '+rank);
 
 	//team rank
 	teamrank=[0,0,0,0,0,0];
@@ -230,7 +215,6 @@ function canvasDraw1() {
 
 	}
 
-	//alert('teamrank = '+teamrank);
 
 	// canvas内の要素をクリアする
 	ctx.clearRect(0, 0, canvasWidth, canvasHeight);
@@ -239,7 +223,6 @@ function canvasDraw1() {
 	var img = new Image();
 	img.src = uploadImgSrc;
 	img.onload = function() {
-		//ctx.drawImage(img, 0, 0, canvasWidth, this.height * (canvasWidth / this.width));
 
 		var img_width = img.naturalWidth;
 		var img_height = img.naturalHeight;
@@ -261,22 +244,6 @@ function canvasDraw1() {
 		ctx.fillStyle = color[style][6];
 		ctx.fillRect(610, 0, 50, 30);
 
-		/*
-		ctx.fillStyle = "#f5f5f5";
-		ctx.fillRect(0, 30, 80, 420);
-		ctx.fillStyle = "#dcdcdc"
-		ctx.fillRect(80, 30, 100, 420);
-		ctx.fillStyle = "#f5f5f5"
-		ctx.fillRect(180, 30, 60, 420);
-		ctx.fillStyle = "#dcdcdc"
-		ctx.fillRect(240, 30, 140, 420);
-		ctx.fillStyle = "#f5f5f5"
-		ctx.fillRect(380, 30, 200, 420);
-		ctx.fillStyle = "#dcdcdc"
-		ctx.fillRect(580, 30, 30, 420);
-		ctx.fillStyle = "#f5f5f5"
-		ctx.fillRect(610, 30, 50, 420);
-		 */
 		addText();
 
 		var drawVerticalLine = function() {
@@ -430,21 +397,6 @@ function canvasDraw1() {
 					ctx.lineWidth = 0.75;
 					ctx.strokeStyle = color[style][8];
 					ctx.strokeText(Number(teampts[s])-previouspts,210, 37.5+35*(2*player_spot+numofplayer-1)/2+10);
-					//--add holizontal line
-					/*
-				ctx.strokeStyle = color[style][11];
-				ctx.lineWidth = 2;
-				ctx.beginPath();
-				ctx.moveTo(0, 37.5+35*(player_spot-0.5)+10);
-				ctx.lineTo(canvasWidth, 37.5+35*(player_spot-0.5)+10);
-				ctx.closePath();
-				ctx.stroke();
-					 */
-					/*
-				ctx.fillStyle = "#f5f5f5";
-				ctx.fillRect(0, 240, canvasWidth, 210);
-				alert("a");
-					 */
 				}
 				//-add team rank
 				if(numofplayer>=6) ctx.font = "31px "+selectfont;
@@ -531,60 +483,6 @@ function canvasDraw1() {
 			}
 			return Number(teampts[s]);
 		}
-		/*
-		var addTeam=function(t) {
-			var spot_rank=1+(t-0.5)*format;
-
-			//add team rank
-			ctx.font = "30px "+selectfont;
-			ctx.textAlign = 'center';
-			ctx.textBaseline = 'middle';
-			ctx.lineWidth = 0.5;
-			if(t==1) {
-				ctx.fillStyle = '#dbb400'; //gold
-				ctx.fillText(String(t)+"st",40, 37.5+35*(spot_rank-1.5)+10);
-				ctx.strokeStyle = "#fff";
-				ctx.strokeText(String(t)+"st",40, 37.5+35*(spot_rank-1.5)+10);
-			}
-			else if(t==2) {
-				ctx.fillStyle = '#c9caca'; //silver
-				ctx.fillText(String(t)+"nd",40, 37.5+35*(spot_rank-1.5)+10);
-				ctx.strokeStyle = "#fff";
-				ctx.strokeText(String(t)+"nd",40, 37.5+35*(spot_rank-1.5)+10);
-			}
-			else if(t==3) {
-				ctx.fillStyle = '#c47022'; //bronze
-				ctx.fillText(String(t)+"rd",40, 37.5+35*(spot_rank-1.5)+10);
-				ctx.strokeStyle = "#fff";
-				ctx.strokeText(String(t)+"rd",40, 37.5+35*(spot_rank-1.5)+10);
-			}
-			else {
-				ctx.fillStyle = color[style][7];
-				ctx.fillText(String(t)+"th",40, 37.5+35*(spot_rank-1.5)+10);
-			}
-			//add team name
-
-			//add team points
-			ctx.font = "40px "+selectfont;
-			ctx.textAlign = 'center';
-			ctx.textBaseline = 'middle';
-			ctx.fillStyle = color[style][7];
-			ctx.fillText("500",130, 37.5+35*(spot_rank-1.5)+10);
-			ctx.lineWidth = 0.75;
-			ctx.strokeStyle = color[style][8];
-			ctx.strokeText("500",130, 37.5+35*(spot_rank-1.5)+10);
-			//add team points difference
-			ctx.font = "20px "+selectfont;
-			ctx.fillStyle = color[style][7];
-			ctx.fillText(String(img_width),210, 37.5+35*(spot_rank-1.5)+10);
-
-			//ctx.lineWidth = 0.35;
-			//ctx.strokeStyle = color[style][8];
-			//ctx.strokeText("50",210, 37.5+35*(spot_rank-1.5)+10);
-
-		};
-		 */
-
 
 		var player_spot=0; //spot in table (considered team rank)
 		var numofteam=0;
@@ -600,25 +498,7 @@ function canvasDraw1() {
 				}
 			}
 		}
-
-		/*for(t=1;t<=(12/format);t++){
-			drawHorizontalLine(t);
-			addTeam(t);
-		}
-		drawVerticalLine();
-
-		for(var i=1;i<=12;i++){
-			//ctx.drawImage(img, 145,88+42*i,360,40,390,37.5+35*(i-1),180,20); //1280*720の場合
-			var margin;
-			if(i==6||i==7||i==8||i==9||i==10||i==12) margin=0.05;
-			else margin=0;
-			ctx.drawImage(img
-					,img_width*(0.12+margin),0.127*img_height+0.058*img_height*i,img_width*(0.24-margin),0.05*img_height
-					,390,37.5+35*(i-1),180-canvasWidth*margin,20);
-			addPts(i);
-		}*/
 	}
-
 	var button = document.getElementById('download_button');
 	button.addEventListener('click', function(){
 
@@ -666,9 +546,6 @@ function addText() {
 }
 
 function addPts(ps,p) { //add player's pts and rank
-	//ctx.fillStyle = '#000000';
-	//ctx.fillRect(380, 20+34*(i-1), 20, 20);
-
 	ctx.font = "15px "+selectfont;
 	ctx.textAlign = 'center';
 	ctx.textBaseline = 'middle';
@@ -788,14 +665,3 @@ function marginChecker(str) {
 	}
 	return m;
 }
-
-/*
-function addTeam(t) {
-	var spot_rank=1+(t-1)*format;
-	ctx.font = "Italic 30px 'MS Pゴシック'";
-	ctx.textAlign = 'center';
-	ctx.textBaseline = 'middle';
-	ctx.fillStyle = '#000';
-	ctx.fillText(String(t),70+10, 37.5+35*(format*2+0.5-1)+10);
-}
- */
