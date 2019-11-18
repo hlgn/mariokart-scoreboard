@@ -24,11 +24,9 @@
  
 # Note
   available charcters for trimming team tag  
-  <dl>
-    <dt>English</dt>
-      <dd>A-Z</dd>
-      <dd>a-z</dd>
-  </dl>
+  *English
+    *A-Z
+    *a-z
  
 # Author
  hlgn  
