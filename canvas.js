@@ -573,98 +573,121 @@ function addPts(ps,p) { //add player's pts and rank
 
 function marginChecker(str) {
 	var m=0;
-	for (a=0;a<str.length;a++) {
-		if(str.charAt(a).match(/^[a-z]*$/)) {
-			switch(str.charAt(a)) {
-			case 'i':
-			case 'l':
-				m+=0.005;
+		switch(str) { //team name(string)
+	case 'Zen':
+		m=0.039;
+		break;
+
+	case 'ff':
+	case 'ƒƒ':
+	case 'fortissimo':
+		m=0.021;
+		break;
+
+	case 'Krw':
+	case 'Kяw':
+		m=0.041;
+		break;
+
+	case 'ΓZ':
+		m=0.035;
+		break;
+
+	default: //character
+		for (a=0;a<str.length;a++) {
+			if(str.charAt(a).match(/^[a-z]*$/)) {
+				switch(str.charAt(a)) {
+				case 'i':
+				case 'l':
+					m+=0.005;
+					break;
+				case 'j':
+					m+=0.006;
+					break;
+				case 'f':
+				case 't':
+					m+=0.008;
+					break;
+				case 'r':
+					m+=0.009;
+					break;
+				case 'k':
+					m+=0.0115;
+					break;
+				case 'o':
+				case 'p':
+				case 'q':
+					m+=0.0125;
+					break;
+				case 'w':
+					m+=0.016;
+					break;
+				case 'm':
+					m+=0.017;
+					break;
+				default:
+					m+=0.0121;
 				break;
-			case 'j':
-				m+=0.006;
+				}
+			} else if(str.charAt(a).match(/^[A-Z]*$/)) {
+				switch(str.charAt(a)) {
+				case 'I':
+					m+=0.005;
+					break;
+				case 'F':
+				case 'J':
+				case 'L':
+					m+=0.013;
+					break;
+				case 'T':
+				case 'Y':
+					m+=0.014;
+					break;
+				case 'H':
+					m+=0.015;
+					break;
+				case 'Q':
+					m+=0.0155;
+					break;
+				case 'O':
+					m+=0.016;
+					break;
+				case 'M':
+					m+=0.017;
+					break;
+				case 'W':
+					m+=0.019;
+					break;
+				default:
+					m+=0.0145;
 				break;
-			case 'f':
-			case 't':
-				m+=0.008;
+				}
+			} else if(str.charAt(a).match(/^[0-9]*$/)) {
+				switch(str.charAt(a)) {
+				case '1':
+					m+=0.007;
 				break;
-			case 'r':
-				m+=0.009;
-				break;
-			case 'k':
-				m+=0.0115;
-				break;
-			case 'o':
-			case 'p':
-			case 'q':
-				m+=0.0125;
-				break;
-			case 'w':
-				m+=0.016;
-				break;
-			case 'm':
-				m+=0.017;
-				break;
-			default:
-				m+=0.0121;
-			break;
-			}
-		} else if(str.charAt(a).match(/^[A-Z]*$/)) {
-			switch(str.charAt(a)) {
-			case 'I':
-				m+=0.005;
-				break;
-			case 'F':
-			case 'J':
-			case 'L':
-				m+=0.013;
-				break;
-			case 'T':
-			case 'Y':
-				m+=0.014;
-				break;
-			case 'H':
-				m+=0.015;
-				break;
-			case 'Q':
-				m+=0.0155;
-				break;
-			case 'O':
-				m+=0.016;
-				break;
-			case 'M':
-				m+=0.017;
-				break;
-			case 'W':
-				m+=0.019;
-				break;
-			default:
-				m+=0.0145;
-			break;
-			}
-		} else if(str.charAt(a).match(/^[0-9]*$/)) {
-			switch(str.charAt(a)) {
-			case '1':
-				m+=0.007;
-				break;
-			case '7':
-				m+=0.013;
-				break
-			default:
-				m+=0.014;
-				break;
-			}
-		} else if(str.charAt(a).match(/^[あ-ー]*$/)) {
-			m+=0.0175;
-		} else {
-			switch(str.charAt(a)) {
-			case '\'':
-				m+=0.004;
-				break;
-			default:
-				m+=-9999;
-			break;
+				case '7':
+					m+=0.013;
+					break
+				default:
+					m+=0.014;
+					break;
+				}
+			} else if(str.charAt(a).match(/^[あ-ー]*$/)) {
+				m+=0.0175;
+			} else {
+				switch(str.charAt(a)) {
+				case '\'':
+					m+=0.004;
+					break;
+				default:
+					m+=-9999;
+					break;
+				}
 			}
 		}
+	break;
 	}
 	return m;
 }
