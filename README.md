@@ -24,11 +24,11 @@
  
 # Note
   available charcters for trimming team tag  
-  *English
-    *A-Z
-    *a-z
+  * English
+    * A-Z
+    * a-z
  
 # Author
  hlgn  
- twitter: @hooligan_mk8d
+ twitter : @hooligan_mk8d(twitter.com/hooligan_mk8d)
 
