@@ -34,6 +34,7 @@
     * 0-9
   * others
     * '
+  * team tag (not yet installed)
  
 # Author
  hlgn  
