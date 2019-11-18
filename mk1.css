@@ -42,10 +42,18 @@ body {
 .table1 td {
 	text-align: center;
 }
-td label {
+.label_radio {
 	display: block;
 	width: 100%;
 	height: 100%;
+}
+.label_check {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.check{
+	height: 3em;
 }
 .table1 tr:nth-child(even) {
 	background: #eee;
