@@ -27,8 +27,15 @@
   * English
     * A-Z
     * a-z
+  * Japanese
+    * hiragana
+    * katakana
+  * numbers
+    * 0-9
+  * others
+    * '
  
 # Author
  hlgn  
- twitter : @hooligan_mk8d(twitter.com/hooligan_mk8d)
+ twitter : @hooligan_mk8d(https://twitter.com/hooligan_mk8d)
 
