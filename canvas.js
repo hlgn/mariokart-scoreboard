@@ -622,12 +622,14 @@ function marginChecker(str) {
 			case 'Y':
 				m+=0.014;
 				break;
-			case 'O':
 			case 'H':
 				m+=0.015;
 				break;
 			case 'Q':
 				m+=0.0155;
+				break;
+			case 'O':
+				m+=0.016;
 				break;
 			case 'M':
 				m+=0.017;
