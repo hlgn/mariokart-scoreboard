@@ -1,15 +1,10 @@
 var i, j;
 document.write("<table class=\"table1\">");
-/*document.write("<tr><td></td><td></td><td style=\"text-align:center\">(4)<br>input<br>player<br>points</td><td style=\"text-align:center\" colspan=\"6\">(3) input team name</td></tr>");
-document.write("<tr><td></td><td></td><td style=\"text-align:center\">↓</td>");
-for(i=0;i<6;i++)
-	document.write("<td style=\"text-align:center\">↓</td>");
-document.write("</tr>");*/
 switch (lang) {
 	case 'eng':
 		document.write("<tr><td style=\"text-align: right\" colspan=\"2\">team name trimmer <br> (available character: <br> A-Z, a-z, Japanese and number)</td><td style=\"text-align: center\">→</td>");
 		for(i=1;i<=6;i++) {
-			document.write("<td><label><input type=\"checkbox\" id=\"trim" +i+ "\" checked=\"checked\"></label></td>");
+			document.write("<td><label class=\"label_check\"><input type=\"checkbox\" class=\"check\" id=\"trim" +i+ "\" checked=\"checked\"></label></td>");
 		}
 		document.write("</tr>");
 		document.write("<tr><th>player</th><th>name</th><th>pts</th>");
@@ -21,9 +16,9 @@ switch (lang) {
     			document.write("<td><canvas id=\"canvas" +i+ "\"></canvas></td>");
     			img_table(i);
     			document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" tabindex=\"" +(6+i)+ "\"></td>");
-    			document.write("<td><label><input type=\"radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
+    			document.write("<td><label><input type=\"radio\" class=\"label_radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
     			for(j=2;j<=6;j++)
-    				document.write("<td><label><input type=\"radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></label></td>");
+    				document.write("<td><label><input type=\"radio\" class=\"label_radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></label></td>");
     			document.write("</tr>");
 		}
 		document.write("<tr><td></td><td><div style=\"text-align:right\">comment(optional)</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
@@ -31,7 +26,7 @@ switch (lang) {
 	case 'jpn':
 		document.write("<tr><td style=\"text-align: right\" colspan=\"2\">チーム名のトリミング <br> (対応文字:英語, 日本語, 数字)</td><td style=\"text-align: center\">→</td>");
 		for(i=1;i<=6;i++) {
-			document.write("<td><label><input type=\"checkbox\" id=\"trim" +i+ "\" checked=\"checked\"></label></td>");
+			document.write("<td><label class=\"label_check\"><input type=\"checkbox\" class=\"check\" id=\"trim" +i+ "\" checked=\"checked\"></label></td>");
 		}
 		document.write("</tr>");
 		document.write("<tr><th>プレイヤー</th><th>名前</th><th>個人点</th>");
@@ -43,9 +38,9 @@ switch (lang) {
     			document.write("<td><canvas id=\"canvas" +i+ "\"></canvas></td>");
     			img_table(i);
     			document.write("<td><input type=\"text\" style=\"width:5em\" id=\"pts_p" +i+ "\" tabindex=\"" +(6+i)+ "\"></td>");
-    			document.write("<td><label><input type=\"radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
+    			document.write("<td><label><input type=\"radio\" class=\"label_radio\" name=\"team_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
     			for(j=2;j<=6;j++)
-    				document.write("<td><label><input type=\"radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></label></td>");
+    				document.write("<td><label><input type=\"radio\" class=\"label_radio\" name=\"team_p" +i+ "\" value=\"" +j+ "\"></label></td>");
     			document.write("</tr>");
 		}
 		document.write("<tr><td></td><td><div style=\"text-align:right\">コメント(任意)</div></td><td colspan=\"7\"><textarea id=\"comment\" style=\"width:100%\" rows=\"4\" tabindex=\"20\"></textarea></td></tr>");
