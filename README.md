@@ -1,5 +1,5 @@
-# Name
-  MarioKart Scoreboard
+
+# MarioKart Scoreboard
   https://hlgn.github.io/mariokart-scoreboard/
  
 # Features
@@ -26,6 +26,6 @@
 
  
 # Author
- hlgn
+ hlgn  
  twitter: @hooligan_mk8d
 
