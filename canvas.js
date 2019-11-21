@@ -681,6 +681,9 @@ function marginChecker(str) {
 				case '\'':
 					m+=0.004;
 					break;
+				case '-':
+					m+=0.008;
+						break;
 				default:
 					m+=-9999;
 					break;
