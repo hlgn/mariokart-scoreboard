@@ -146,6 +146,10 @@ bottom: 5px;
 		vertical-align:-100%;
 	}
 
+	
+	.table1 {
+		width: 100%;
+	}
 	.table1 th {
 		text-align: center;
 		background-color: #c0c0c0;
