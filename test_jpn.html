@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+<!-- <script src="jquery-3.4.1.min.js"></script>-->
+
+    <link rel="stylesheet" type="text/css" href="test_mk1.css">
+
+    <title>MarioKart Scoreboard</title>
+  </head>
+  <body>
+    <div id="background"></div>
+    <div id="header">MarioKart Scoreboard</div>
+    <br>
+    <div id="select_language">
+      <img src="./images/jpn.png" class="img_flag"> 日本語 /
+      <a href="./index.html"><img src="./images/us.png" class="img_flag"><img src="./images/gb.png" class="img_flag"> English  </a>
+    </div>
+    <div class="subject">(1) 画像の形式を選択</div>
+    <br>
+    <table class="table_example">
+      <tr>
+      <td><label><input type="radio" name="imagestyle" checked="checked"><img src="./images/race_example.jpg" class="img_example"></label></td>
+      <td><label><input type="radio" name="imagestyle"><img src="./images/final_example.jpg" class="img_example"></label></td>
+      </tr><tr>
+      <td style="text-align:center">(↑推奨)</td><td></td>
+      </tr>
+    </table>
+
+    <br>
+    <br>
+    <div class="subject">(2) 結果画像をアップロード</div>
+    <br>
+    <input type="file" name="file" id="file">
+    <br>
+    <br>
+    <div class="subject">(3-1) 個人の得点とチーム名を入力</div>
+    <br>
+    <div class="subject">(3-2) プレイヤーのチームを選択</div>
+    <br>
+    <script type="text/javascript">
+      var lang='jpn';
+    </script>
+    <script type="text/javascript" src="test_table.js">
+    </script>
+    <br>
+    <div class="subject">(4) 集計の作成</div>
+    <br>
+    <input type="button" value="作成" onclick="canvasDraw1()" tabindex="30">
+    <br>
+    <div class="text_total">
+      合計点 =
+      <span id="total"></span>
+    </div>
+    <br>
+    <canvas id="canvas_result"></canvas>
+    <script type="text/javascript" src="canvas.js"></script>
+    <br>
+    <div class="subject">(5) 集計画像のダウンロード</div>
+    <br>
+    <button id="download_button">ダウンロード</button>
+
+    <a id="download_link"></a>
+    <div id="blank"></div>
+    <div id="foot">
+    <br>
+    <a href="https://twitter.com/hooligan_mk8d" class="linktext"><img src="./images/Twitter_White.png" class="img_Twitter"> Twitter @hooligan_mk8d </a>
+    <!--
+    <a href="https://www.instagram.com" class="linktext"><img src="./images/Instagram_White.png" class="img_Instagram"></a>
+    <a href="https://www.youtube.com" class="linktext"><img src="./images/Youtube_White.png" class="img_Youtube"></a>
+    -->
+    </div>
+  </body>
+</html>
