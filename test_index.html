@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+<!-- <script src="jquery-3.4.1.min.js"></script>-->
+
+    <link rel="stylesheet" type="text/css" href="mk1.css">
+
+    <title>MarioKart Scoreboard</title>
+  </head>
+  <body>
+    <div id="background"></div>
+    <div id="header">MarioKart Scoreboard</div>
+    <br>
+    <div id="select_language">
+      <a href="./jpn.html"><img src="./images/jpn.png" class="img_flag"> 日本語 </a> /
+      <img src="./images/us.png" class="img_flag"><img src="./images/gb.png" class="img_flag"> English
+    </div>
+    <div class="subject">(1) select image style</div>
+    <br>
+    <table class="table_example">
+      <tr>
+      <td><label><input type="radio" name="imagestyle" checked="checked"><img src="./images/race_example.jpg" class="img_example"></label></td>
+      <td><label><input type="radio" name="imagestyle"><img src="./images/final_example.jpg" class="img_example"></label></td>
+      </tr><tr>
+      <td style="text-align:center">(↑recommended)</td><td></td>
+      </tr>
+    </table>
+
+    <br>
+    <br>
+    <div class="subject">(2) choose image</div>
+    <br>
+    <input type="file" name="file" id="file">
+    <br>
+    <br>
+    <div class="subject">(3-1) input player's points and team name</div>
+    <br>
+    <div class="subject">(3-2) select player's team</div>
+    <br>
+    <script type="text/javascript">
+      var lang='eng';
+    </script>
+    <script type="text/javascript" src="table.js">
+    </script>
+    <br>
+    <div class="subject">(4) make scoreboard</div>
+    <br>
+    <input type="button" value="make scoreboard" onclick="canvasDraw1()" tabindex="30">
+    <br>
+    <div class="text_total">
+      Total pts =
+      <span id="total"></span>
+    </div>
+    <br>
+    <canvas id="canvas_result"></canvas>
+    <script type="text/javascript" src="canvas.js"></script>
+    <br>
+    <div class="subject">(5) download scoreboard as image</div>
+    <br>
+    <button id="download_button">download</button>
+
+    <a id="download_link"></a>
+    <div id="blank"></div>
+    <div id="foot">
+    <br>
+    <a href="https://twitter.com/hooligan_mk8d" class="linktext"><img src="./images/Twitter_White.png" class="img_Twitter"> Twitter @hooligan_mk8d </a>
+    <!--
+    <a href="https://www.instagram.com" class="linktext"><img src="./images/Instagram_White.png" class="img_Instagram"></a>
+    <a href="https://www.youtube.com" class="linktext"><img src="./images/Youtube_White.png" class="img_Youtube"></a>
+    -->
+    </div>
+  </body>
+</html>
