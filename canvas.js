@@ -130,12 +130,14 @@ function canvasDraw1() {
 				document.getElementById('total').innerHTML=totalpts+"pts (12 players : "+parseInt(totalpts/82+1)+" races<span style=\"color:red\"> - "+(82-totalpts%82)+" pts</span>)";
 			}
 		}
+		break;
 	case 'jpn':
 		if(totalpts%82==0) {
 			document.getElementById('total').innerHTML=totalpts+"点 (12人 : "+(totalpts/82)+"レース)";
 		} else {
 			document.getElementById('total').innerHTML=totalpts+"点 (12人 : "+parseInt(totalpts/82+1)+"レース<span style=\"color:red\"> - "+(82-totalpts%82)+"点</span>)";	
 		}
+		break;
 	}
 
 	for(var p=0;p<6;p++){
