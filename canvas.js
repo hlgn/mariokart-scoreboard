@@ -680,8 +680,9 @@ function marginChecker(str) {
 				m+=0.0175;
 			} else {
 				switch(str.charAt(a)) {
+				case '‘':
 				case '\'':
-					m+=0.004;
+					m+=0.006;
 					break;
 				case '-':
 					m+=0.008;
