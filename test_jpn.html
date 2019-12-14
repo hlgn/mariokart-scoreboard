@@ -31,7 +31,10 @@
     <br>
     <div class="subject">(2) 結果画像をアップロード</div>
     <br>
+    <label for="file" id="label_file">
+    画像ファイルを選択...
     <input type="file" name="file" id="file">
+    </label>
     <br>
     <br>
     <div class="subject">(3-1) 個人の得点とチーム名を入力</div>
@@ -46,7 +49,10 @@
     <br>
     <div class="subject">(4) 集計の作成</div>
     <br>
-    <input type="button" value="作成" onclick="canvasDraw1()" tabindex="30">
+    <label for="button_canvas" id="label_button_canvas">
+    スコアボード作成
+    <input type="button" onclick="canvasDraw1()" tabindex="30" id="button_canvas">
+    </label>
     <br>
     <div class="text_total">
       合計点 =
