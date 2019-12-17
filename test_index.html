@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8"/>
@@ -6,48 +7,60 @@
 
     <link rel="stylesheet" type="text/css" href="test_mk1.css">
 
-    <title>MarioKart Scoreboard</title>
+    <title>Mario Kart Scoreboard</title>
   </head>
   <body>
     <div id="background"></div>
-    <div id="header">MarioKart Scoreboard</div>
+    <div id="header"><!--<img src="./images/icon_transparent.png" class="icon">--><span id="header_title" style="display: inline-block"><span class="css-br">Mario Kart </span>Scoreboard</span><span id="select_language">
+      <a href="./test_jpn.html" class="lang_text"><img src="./images/jpn.png" class="img_flag"> 日本語 </a> /
+      <img src="./images/us.png" class="img_flag"><img src="./images/gb.png" class="img_flag"> English
+    </span></div>
     <br>
-    <div id="select_language">
+    <!--<div id="select_language">
       <a href="./test_jpn.html"><img src="./images/jpn.png" class="img_flag"> 日本語 </a> /
       <img src="./images/us.png" class="img_flag"><img src="./images/gb.png" class="img_flag"> English
-    </div>
+    </div>-->
     <div class="subject">(1) select image style</div>
+    <div class="contents">
     <br>
     <table class="table_example">
       <tr>
-      <td><label><input type="radio" name="imagestyle" checked="checked"><img src="./images/race_example.jpg" class="img_example"></label></td>
-      <td><label><input type="radio" name="imagestyle"><img src="./images/final_example.jpg" class="img_example"></label></td>
+      <td><label class="label_style"><input type="radio" name="imagestyle" checked="checked"><img src="./images/race_example.jpg" class="img_example"></label></td>
+      <td><label class="label_style"><input type="radio" name="imagestyle"><img src="./images/final_example.jpg" class="img_example"></label></td>
       </tr><tr>
       <td style="text-align:center">(↑recommended)</td><td></td>
       </tr>
     </table>
-
+    <br>
+    <br>
+	</div>
     <br>
     <br>
     <div class="subject">(2) choose image</div>
+    <div class="contents">
     <br>
 	<label for="file" id="label_file">
-	select image file
+	select image file...
 	<input type="file" name="file" id="file">
 	</label>
 	<br>
     <br>
+    </div>
+    <br>
+    <br>
     <div class="subject">(3-1) input player's points and team name</div>
-    <br>
     <div class="subject">(3-2) select player's team</div>
-    <br>
+    <div class="contents">
     <script type="text/javascript">
       var lang='eng';
     </script>
     <script type="text/javascript" src="test_table.js">
     </script>
+    </div>
+    <br>
     <br>
     <div class="subject">(4) make scoreboard</div>
+    <div class="contents">
     <br>
     <label for="button_canvas" id="label_button_canvas">
      make scoreboard
@@ -62,11 +75,22 @@
     <canvas id="canvas_result"></canvas>
     <script type="text/javascript" src="canvas.js"></script>
     <br>
-    <div class="subject">(5) download scoreboard as image</div>
     <br>
+    </div>
+    <br>
+    <br>
+    <div class="subject">(5) download scoreboard as image</div>
+    <div class="contents">
+    <br>
+    <label for="download_button" id="label_download_button">
+    download
     <button id="download_button">download</button>
 
     <a id="download_link"></a>
+    </label>
+    <br>
+    <br>
+    </div>
     <div id="blank"></div>
     <div id="foot">
     <br>
