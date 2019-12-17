@@ -189,7 +189,6 @@ bottom: 5px;
 		text-align: center;
 		border-radius: 10px;
 		background: #282E2E;
-		/*background: #ff0;*/
 		color: #fff;
 		padding: 0.5em 1em;
 		display: inline-block;
@@ -258,6 +257,7 @@ bottom: 5px;
 		background: #282E2E;
 		color: #fff;
 		padding: 0.5em 1em;
+		display: inline-block;
 	}
 
 	#label_button_canvas input {
