@@ -191,6 +191,7 @@ bottom: 5px;
 		background: #282E2E;
 		color: #fff;
 		padding: 0.5em 1em;
+		width: 50%;
 	}
 
 	#label_file input {
