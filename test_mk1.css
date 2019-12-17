@@ -17,29 +17,102 @@ body {
 }
 
 #header {
-	font-size: 50px;
+	/*font-size: 50px;*/
+	font-size: 1.5em;
 	font-family: "Courier";
 	color: #fff;
 	/*border: 0px double #000;*/
 	/*width: 400px;*/
-	text-align: center;
+	/*text-align: left;*/
 	background-color: #282E2E;
 	background: cover;
+	padding: 1em;
+	position: relative;
 }
+
+/* .icon {
+	filter: grayscale(60%);
+	height: 1em;
+	align-items: center;
+	padding-right: 0.5em;
+} */
+
+
+#header_title {
+	text-align: center;
+	max-width: 60%;
+}
+
+.img_flag {
+	height: 1em;
+	/*vertical-align: -40%;*/
+}
+
 
 #select_language {
-		text-align: right;
-	}
+	margin: auto;
+	right: 1em;
+	font-size: 0.6em;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	max-width: 40%;
+}
+
+.lang_text {
+	color: white;
+}
+
+.subject {
+	background-color: #a9a9a9;
+	color: white;
+	padding: 0.5em;
+}
+
+
+.contents {
+	background-color: #dcdcdc;
+}
+
+.table_example {
+}
+
+.table_example td {
+	width: 200px;
+	text-align: center;
+}
 
 .img_example {
-	height: 60px;
+	/* height: 60px; */
+	width: 90%;
 	vertical-align: -100%;
+	padding: 1.5%;
 }
-/*
-.table1 {
-	width: 100%;
-}*/
 
+.label_style input[type="radio"] {
+	display: none;
+}
+.label_style input[type="radio"]:checked + img {
+	background-color: red;
+}
+
+#label_file {
+	text-align: center;
+	border-radius: 10px;
+	background: #282E2E;
+	color: #fff;
+	padding: 0.5em 1em;
+}
+
+#label_file input {
+	display: none;
+}
+
+.table1 {
+/* 	width: 100%; */
+/* 	background-color: #f5f5f5; */
+}
 .table1 th {
 	text-align: center;
 	background-color: #c0c0c0;
@@ -88,8 +161,33 @@ body {
 	background: #a9a9a9;
 }
 
+#label_button_canvas {
+	text-align: center;
+	border-radius: 10px;
+	background: #282E2E;
+	color: #fff;
+	padding: 0.5em 1em;
+}
+
+#label_button_canvas input {
+	display: none;
+}
+
 .text_total {
 	font-size: 1.5em;
+	margin-top: 2em;
+}
+
+#label_download_button {
+	text-align: center;
+	border-radius: 10px;
+	background: #282E2E;
+	color: #fff;
+	padding: 0.5em 1em;
+}
+
+#label_download_button button {
+	display: none;
 }
 
 #blank {
@@ -114,10 +212,7 @@ body {
 	height: 10px;
 }
 
-.img_flag {
-	height: 30px;
-	/*vertical-align: -40%;*/
-}
+
 
 .img_Twitter {
 	height: 30px;
@@ -153,7 +248,7 @@ bottom: 5px;
 		font-size: 40px;
 	}
 	#header {
-		font-size: 1em;
+		font-size: 1.2em;
 		font-family: "Courier";
 		color: #fff;
 		/*border: 0px double #000;*/
@@ -161,20 +256,47 @@ bottom: 5px;
 		text-align: left;
 		background-color: #282E2E;
 		background: cover;
-		height: 2.5em;
-		display: flex;
+		/*display: flex;*/
   		align-items: center;
-  		padding-left: 1em;
+  		padding: 1em;
 	}
-	.subject {
-		width: auto;
-		height: 1em;
-		/*font-size: 1em;*/
+	.icon {
+		filter: grayscale(60%);
+		height: 2em;
+		margin: auto;
+		align-items: center;
+	}
+	#header_title {
+		text-align: center;
+		max-width: none;
+	}
+	.css-br::after  {
+		content: "\A" ;
+		white-space: pre-wrap;
 	}
 	#select_language {
+		margin: auto;
+		right: 1em;
+		font-size: 0.6em;
+		position: absolute;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+		max-width: none;
 		height: 1em;
 		text-align: right;
 		/* font-size: 20px; */
+	}
+
+	.lang_text  {
+		color: white;
+	}
+	.subject {
+		background-color: #a9a9a9;
+		color: white;
+		padding: 0.5em;
+		font-size: 1em;
+		height: 1.5em;
 	}
 	.table_example {
 	width: 100%;
@@ -183,6 +305,21 @@ bottom: 5px;
 
 	.table_example td {
 		text-align: center;
+		width: 50%;
+	}
+
+	.img_example {
+		width: 75%;
+		height: auto;
+		vertical-align: -100%;
+		padding: 1.2%;
+	}
+
+	.label_style input[type="radio"] {
+		display: none;
+	}
+	.label_style input[type="radio"]:checked+img {
+		background-color: red;
 	}
 
 	#label_file{
@@ -203,11 +340,7 @@ bottom: 5px;
 		height: auto;
 	}
 
-	.img_example {
-		width: 100%;
-		height: auto;
-		vertical-align: -100%;
-	}
+
 	.table1 {
 		width: 100%;
 		font-size: 0.667em;
@@ -272,6 +405,23 @@ bottom: 5px;
 		font-size:40px;
 	}
 
+	#canvas_result {
+		width: 100%;
+	}
+
+	#label_download_button{
+		text-align: center;
+		border-radius: 10px;
+		background: #282E2E;
+		color: #fff;
+		padding: 0.5em 1em;
+		display: inline-block;
+	}
+
+	#label_download_button button {
+		display: none;
+	}
+
 	#blank {
 		padding-bottom: 200px;
 		/*background-color: rgba(33, 39, 98, 0);*/
@@ -284,11 +434,12 @@ bottom: 5px;
 		height: 100px;
 		background-color: #282E2E;
 		background: cover;
+		display: flex;
+  		align-items: center;
 	}
 	.linktext {
 		font-size: 0.667em;
-		margin: 15px;
-		margin-right: 15px;
+		margin: 1em 1em 1em auto;
 		text-decoration: none; /*delete underline*/
 		color: #fff;
 		height: 1em;
