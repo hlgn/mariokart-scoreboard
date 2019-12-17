@@ -188,7 +188,8 @@ bottom: 5px;
 	#label_file{
 		text-align: center;
 		border-radius: 10px;
-		background: #282E2E;
+		/*background: #282E2E;*/
+		background: #ff0;
 		color: #fff;
 		padding: 0.5em 1em;
 		padding-right: 2em;
