@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8"/>
@@ -6,48 +7,59 @@
 
     <link rel="stylesheet" type="text/css" href="test_mk1.css">
 
-    <title>MarioKart Scoreboard</title>
+    <title>Mario Kart Scoreboard</title>
   </head>
   <body>
     <div id="background"></div>
-    <div id="header">MarioKart Scoreboard</div>
+    <div id="header"><!--<img src="./images/icon_transparent.png" class="icon">--><span id="header_title" style="display: inline-block"><span class="css-br">Mario Kart </span>Scoreboard</span><span id="select_language">
+      <img src="./images/jpn.png" class="img_flag"> 日本語 /
+      <a href="./test_index.html" class="lang_text"><img src="./images/us.png" class="img_flag"><img src="./images/gb.png" class="img_flag"> English  </a>
+    </span></div>
     <br>
-    <div id="select_language">
+    <!--<div id="select_language">
       <img src="./images/jpn.png" class="img_flag"> 日本語 /
       <a href="./test_index.html"><img src="./images/us.png" class="img_flag"><img src="./images/gb.png" class="img_flag"> English  </a>
-    </div>
+    </div>-->
     <div class="subject">(1) 画像の形式を選択</div>
+    <div class="contents">
     <br>
     <table class="table_example">
       <tr>
-      <td><label><input type="radio" name="imagestyle" checked="checked"><img src="./images/race_example.jpg" class="img_example"></label></td>
-      <td><label><input type="radio" name="imagestyle"><img src="./images/final_example.jpg" class="img_example"></label></td>
+      <td><label class="label_style"><input type="radio" name="imagestyle" checked="checked"><img src="./images/race_example.jpg" class="img_example"></label></td>
+      <td><label class="label_style"><input type="radio" name="imagestyle"><img src="./images/final_example.jpg" class="img_example"></label></td>
       </tr><tr>
       <td style="text-align:center">(↑推奨)</td><td></td>
       </tr>
     </table>
-
+    <br>
+    <br>
+	</div>
     <br>
     <br>
     <div class="subject">(2) 結果画像をアップロード</div>
+    <div class="contents">
     <br>
     <label for="file" id="label_file">
-    画像ファイルを選択
+    画像ファイルを選択...
     <input type="file" name="file" id="file">
     </label>
     <br>
     <br>
+    </div>
+    <br>
+    <br>
     <div class="subject">(3-1) 個人の得点とチーム名を入力</div>
-    <br>
     <div class="subject">(3-2) プレイヤーのチームを選択</div>
-    <br>
+    <div class="contents">
     <script type="text/javascript">
       var lang='jpn';
     </script>
     <script type="text/javascript" src="test_table.js">
     </script>
+    </div>
     <br>
     <div class="subject">(4) 集計の作成</div>
+    <div class="contents">
     <br>
     <label for="button_canvas" id="label_button_canvas">
     スコアボード作成
@@ -62,11 +74,21 @@
     <canvas id="canvas_result"></canvas>
     <script type="text/javascript" src="canvas.js"></script>
     <br>
-    <div class="subject">(5) 集計画像のダウンロード</div>
     <br>
-    <button id="download_button">ダウンロード</button>
+    </div>
+    <br>
+    <div class="subject">(5) 集計画像のダウンロード</div>
+    <div class="contents">
+    <br>
+    <label for="download_button" id="label_download_button">
+    ダウンロード
+    <button id="download_button">download</button>
 
     <a id="download_link"></a>
+    </label>
+    <br>
+    <br>
+    </div>
     <div id="blank"></div>
     <div id="foot">
     <br>
