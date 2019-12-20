@@ -57,6 +57,7 @@ function img_table(img_spot) {
 	var canvasHeight = 20;
 	var uploadImgSrc;
 
+
 	//	Canvasの準備
 	canvas.width = canvasWidth;
 	canvas.height = canvasHeight;
@@ -103,14 +104,208 @@ function img_table(img_spot) {
 				if(document.getElementsByName('imagestyle')[p].checked)
 					imageStyle=p;
 				}
+
+
+
 			switch(imageStyle) {
 			case 0:
+				/*
+				 *
+				 * OCR for player's points
+				 *
+				 */
+				var ocrPts = 0;
+				var rgbArray = new Array(21);
+				var imagedata;
+				/*
+				 * 0:yellow or others
+				 * 1-9:ones place
+				 * 10-18:tens place
+				 * 19,20:hundreds place
+				 */
+
 				ctx.drawImage(img
-						,img_width*0.525, 0.008*img_height+0.072*img_height*img_spot, img_width*0.26, 0.05*img_height
-						, 0, 0, canvasWidth*0.85, canvasHeight);
-				ctx.drawImage(img
-						,img_width*0.91, 0.008*img_height+0.072*img_height*img_spot, img_width*0.045, 0.05*img_height
-						, canvasWidth*0.85, 0, canvasWidth*0.15, canvasHeight);
+						,img_width*0.91, 0.008*img_height+0.0723*img_height*img_spot, img_width*0.045, 0.05*img_height
+						, 0, 0, canvasWidth, canvasHeight);
+
+				imagedata=ctx.getImageData(2, 2, 10, 10);
+				if((imagedata.data[0]+imagedata.data[1]-imagedata.data[2])>380) {
+					rgbArray[0]=1;
+				} else {
+					rgbArray[0]=0;
+				}
+
+		        imagedata = ctx.getImageData(150, 7, 8, 2);
+		        rgbArray[1]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(150, 12.5, 8, 2);
+		        rgbArray[2]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(127, 5.6, 15, 1);
+		        rgbArray[3]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(133, 7, 6, 2);
+		        rgbArray[4]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(127, 10.4, 15, 1);
+		        rgbArray[5]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(133, 12.5, 6, 2);
+		        rgbArray[6]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(127, 15.3, 15, 1);
+		        rgbArray[7]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(115, 7, 8, 2);
+		        rgbArray[8]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(115, 12.5, 8, 1);
+		        rgbArray[9]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(95, 7, 7, 2);
+		        rgbArray[10]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(95, 12.5, 7, 2);
+		        rgbArray[11]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(74, 5.6, 15, 1);
+		        rgbArray[12]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(78, 7, 6, 2);
+		        rgbArray[13]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(74, 10.4, 15, 1);
+		        rgbArray[14]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(78, 12.5, 6, 2);
+		        rgbArray[15]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(74, 15.3, 15, 1);
+		        rgbArray[16]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(61, 7, 7, 2);
+		        rgbArray[17]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(61, 12.5, 7, 1);
+		        rgbArray[18]=borderline(rgbArray[0], imagedata)
+
+		        imagedata = ctx.getImageData(25, 7, 5, 2);
+		        rgbArray[19]=borderline(rgbArray[0], imagedata);
+
+		        imagedata = ctx.getImageData(25, 7, 5, 2);
+		        rgbArray[20]=borderline(rgbArray[0], imagedata);
+
+		        if(rgbArray[4]==1&&rgbArray[6]==1) {
+		        	rgbArray[3]=0;
+		        	rgbArray[5]=0;
+		        	rgbArray[7]=0;
+		        }
+		        if(rgbArray[13]==1&&rgbArray[15]==1) {
+		        	rgbArray[12]=0;
+		        	rgbArray[14]=0;
+		        	rgbArray[16]=0;
+		        }
+
+		        console.log(img_spot+" : "+rgbArray);
+
+		        switch (JSON.stringify(rgbArray.slice(1,10))) {
+		        case JSON.stringify([1,1,1,0,0,0,1,1,1]):
+		        	ocrPts+=0;
+		        	break;
+		        case JSON.stringify([0,0,0,1,0,1,0,0,0]):
+		        	ocrPts+=1;
+		        	break;
+		        case JSON.stringify([1,0,1,0,1,0,1,0,1]):
+		        	ocrPts+=2;
+		        	break;
+		        case JSON.stringify([1,1,1,0,1,0,1,0,0]):
+		        	ocrPts+=3;
+		        	break;
+		        case JSON.stringify([1,1,0,0,1,0,0,1,0]):
+		        	ocrPts+=4;
+		        	break;
+		        case JSON.stringify([0,1,1,0,1,0,1,1,0]):
+		        	ocrPts+=5;
+		        	break;
+		        case JSON.stringify([0,1,1,0,1,0,1,1,1]):
+		        	ocrPts+=6;
+		        	break;
+		        case JSON.stringify([1,1,1,0,0,0,0,0,0]):
+		        	ocrPts+=7;
+		        	break;
+		        case JSON.stringify([1,1,1,0,1,0,1,1,1]):
+		        	ocrPts+=8;
+		        	break;
+		        case JSON.stringify([1,1,1,0,1,0,1,1,0]):
+		        	ocrPts+=9;
+		        	break;
+		        default:
+		        	ocrPts+=-9999;
+		        	break;
+		        }
+
+		        switch (JSON.stringify(rgbArray.slice(10,19))) {
+		        case JSON.stringify([1,1,1,0,0,0,1,1,1]):
+		        	ocrPts+=0;
+		        	break;
+		        case JSON.stringify([0,0,0,1,0,1,0,0,0]):
+		        	ocrPts+=10;
+		        	break;
+		        case JSON.stringify([1,0,1,0,1,0,1,0,1]):
+		        	ocrPts+=20;
+		        	break;
+		        case JSON.stringify([1,1,1,0,1,0,1,0,0]):
+		        	ocrPts+=30;
+		        	break;
+		        case JSON.stringify([1,1,0,0,1,0,0,1,0]):
+		        	ocrPts+=40;
+		        	break;
+		        case JSON.stringify([0,1,1,0,1,0,1,1,0]):
+		        	ocrPts+=50;
+		        	break;
+		        case JSON.stringify([0,1,1,0,1,0,1,1,1]):
+		        	ocrPts+=60;
+		        	break;
+		        case JSON.stringify([1,1,1,0,0,0,0,0,0]):
+		        	ocrPts+=70;
+		        	break;
+		        case JSON.stringify([1,1,1,0,1,0,1,1,1]):
+		        	ocrPts+=80;
+		        	break;
+		        case JSON.stringify([1,1,1,0,1,0,1,1,0]):
+		        	ocrPts+=90;
+		        	break;
+		        default:
+		        	ocrPts+=-9999;
+		        	break;
+		        }
+
+		        switch (JSON.stringify(rgbArray.slice(19,21))) {
+		        case JSON.stringify([0,0]):
+		        	ocrPts+=0;
+		        	break;
+		        case JSON.stringify([1,1]):
+		        	ocrPts+=100;
+		        	break;
+		        default:
+		        	ocrPts+=-9999;
+		        	break;
+		        }
+		        console.log(ocrPts);
+
+		        if(ocrPts>=0) {
+		        	document.getElementById("pts_p"+img_spot).value = ocrPts;
+		        } else {
+		        	document.getElementById("pts_p"+img_spot).value = "?";
+		        }
+
+		        ctx.drawImage(img
+		        		,img_width*0.525, 0.008*img_height+0.072*img_height*img_spot, img_width*0.26, 0.05*img_height
+		        		, 0, 0, canvasWidth*0.85, canvasHeight);
+		        ctx.drawImage(img
+		        		,img_width*0.91, 0.008*img_height+0.072*img_height*img_spot, img_width*0.045, 0.05*img_height
+		        		, canvasWidth*0.85, 0, canvasWidth*0.15, canvasHeight);
+
 				break;
 			case 1:
 				ctx.drawImage(img
@@ -121,6 +316,22 @@ function img_table(img_spot) {
 			default:
 				break;
 
+
+			}
+		}
+	}
+	function borderline(y, imagedata) {
+		if(y==0) {
+			if(Number(imagedata.data[0])+Number(imagedata.data[1])+Number(imagedata.data[2])>500) {
+				return 1; //white
+			} else {
+				return 0; //others
+			}
+		} else {
+			if(Number(imagedata.data[0])+Number(imagedata.data[1])<380) {
+				return 1; //black
+			} else {
+				return 0;
 			}
 		}
 	}
