@@ -109,6 +109,18 @@ body {
 	display: none;
 }
 
+#label_button_reload {
+	text-align: center;
+	border-radius: 10px;
+	background: #282E2E;
+	color: #fff;
+	padding: 0.5em 1em;
+}
+
+#label_button_reload input {
+	display: none;
+}
+
 .table1 {
 /* 	width: 100%; */
 /* 	background-color: #f5f5f5; */
@@ -332,6 +344,19 @@ bottom: 5px;
 	}
 
 	#label_file input {
+		display: none;
+	}
+
+	#label_button_reload{
+		text-align: center;
+		border-radius: 10px;
+		background: #282E2E;
+		color: #fff;
+		padding: 0.5em 1em;
+		display: inline-block;
+	}
+
+	#label_button_reload input {
 		display: none;
 	}
 
