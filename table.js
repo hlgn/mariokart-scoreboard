@@ -318,8 +318,7 @@ function img_table(img_spot) {
 				var ocrPts = 0;
 				var rgbArray = new Array(21);
 				var totalRgbArray = new Array(21);totalRgbArray[0]=0;
-				var border=400;
-				var border2=400;
+				var border = new Array(0,0,0,0,0,0);
 				var imagedata;
 				/*
 				 * 0:yellow or others
@@ -423,14 +422,14 @@ function img_table(img_spot) {
 						if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 480) {
 							if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
 								maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
-								border=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
+								border[0]=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
 							}
 						}
 					}
-					console.log(img_spot+":::"+"border="+border+"->"+totalRgbArray);
+					console.log(img_spot+":::"+"border[0]="+border[0]+"->"+totalRgbArray);
 
 					for(k=1; k<=20; k++){
-						if(totalRgbArray[k]>border)
+						if(totalRgbArray[k]>border[0])
 							rgbArray[k]=1;
 						else
 							rgbArray[k]=0;
@@ -601,134 +600,135 @@ function img_table(img_spot) {
 		        if(ocrPts>=0) { //succeeded in OCR
 		        	document.getElementById("pts_p"+img_spot).value = ocrPts;
 		        } else { //failed in OCR -> reset order
-		        	maxDiff=0;
-		        	for(var k=0; k<19; k++) {
-		        		if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 480 && border!=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2) {
-		        			if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
-		        				maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
-		        				border2=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
+		        	for(var m=1; m<6&&ocrPts<0; m++) {
+		        		maxDiff=0;
+		        		for(var k=0; k<19; k++) {
+		        			if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 500 && border.indexOf((sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2)==-1) {
+		        				if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
+		        					maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
+		        					border[m]=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
+		        				}
 		        			}
 		        		}
-		        	}
-		        	console.log(img_spot+":::"+"border2="+border2+"->"+totalRgbArray);
+		        		console.log(img_spot+":::"+"border[m]="+border[m]+"->"+totalRgbArray);
 
-		        	for(k=1; k<=20; k++){
-		        		if(totalRgbArray[k]>border2)
-		        			rgbArray[k]=1;
-		        		else
-		        			rgbArray[k]=0;
-		        	}
+		        		for(k=1; k<=20; k++){
+		        			if(totalRgbArray[k]>border[m])
+		        				rgbArray[k]=1;
+		        			else
+		        				rgbArray[k]=0;
+		        		}
 
 
-		        	if(rgbArray[4]==1&&rgbArray[6]==1) {
-		        		rgbArray[3]=0;
-		        		rgbArray[5]=0;
-		        		rgbArray[7]=0;
-		        	}
-		        	if(rgbArray[13]==1&&rgbArray[15]==1) {
-		        		rgbArray[12]=0;
-		        		rgbArray[14]=0;
-		        		rgbArray[16]=0;
-		        	}
+		        		if(rgbArray[4]==1&&rgbArray[6]==1) {
+		        			rgbArray[3]=0;
+		        			rgbArray[5]=0;
+		        			rgbArray[7]=0;
+		        		}
+		        		if(rgbArray[13]==1&&rgbArray[15]==1) {
+		        			rgbArray[12]=0;
+		        			rgbArray[14]=0;
+		        			rgbArray[16]=0;
+		        		}
 
-		        	console.log(img_spot+" : "+rgbArray);
+		        		console.log(img_spot+" : "+rgbArray);
 
-		        	ocrPts = 0;
+		        		ocrPts = 0;
 
-		        	switch (JSON.stringify(rgbArray.slice(1,10))) {
-		        	case JSON.stringify([1,1,1,0,0,0,1,1,1]):
-		        	case JSON.stringify([0,0,0,0,0,0,0,0,0]):
-		        		ocrPts+=0;
-		        	break;
-		        	case JSON.stringify([0,0,0,1,0,1,0,0,0]):
-		        		ocrPts+=1;
-		        	break;
-		        	case JSON.stringify([1,0,1,0,1,0,1,0,1]):
-		        		ocrPts+=2;
-		        	break;
-		        	case JSON.stringify([1,1,1,0,1,0,1,0,0]):
-		        		ocrPts+=3;
-		        	break;
-		        	case JSON.stringify([1,1,0,0,1,0,0,1,0]):
-		        		ocrPts+=4;
-		        	break;
-		        	case JSON.stringify([0,1,1,0,1,0,1,1,0]):
-		        		ocrPts+=5;
-		        	break;
-		        	case JSON.stringify([0,1,1,0,1,0,1,1,1]):
-		        		ocrPts+=6;
-		        	break;
-		        	case JSON.stringify([1,1,1,0,0,0,0,0,0]):
-		        		ocrPts+=7;
-		        	break;
-		        	case JSON.stringify([1,1,1,0,1,0,1,1,1]):
-		        		ocrPts+=8;
-		        	break;
-		        	case JSON.stringify([1,1,1,0,1,0,1,1,0]):
-		        		ocrPts+=9;
-		        	break;
-		        	default:
-		        		ocrPts+=-9999;
-		        	break;
-		        	}
+		        		switch (JSON.stringify(rgbArray.slice(1,10))) {
+		        		case JSON.stringify([1,1,1,0,0,0,1,1,1]):
+		        		case JSON.stringify([0,0,0,0,0,0,0,0,0]):
+		        			ocrPts+=0;
+		        		break;
+		        		case JSON.stringify([0,0,0,1,0,1,0,0,0]):
+		        			ocrPts+=1;
+		        		break;
+		        		case JSON.stringify([1,0,1,0,1,0,1,0,1]):
+		        			ocrPts+=2;
+		        		break;
+		        		case JSON.stringify([1,1,1,0,1,0,1,0,0]):
+		        			ocrPts+=3;
+		        		break;
+		        		case JSON.stringify([1,1,0,0,1,0,0,1,0]):
+		        			ocrPts+=4;
+		        		break;
+		        		case JSON.stringify([0,1,1,0,1,0,1,1,0]):
+		        			ocrPts+=5;
+		        		break;
+		        		case JSON.stringify([0,1,1,0,1,0,1,1,1]):
+		        			ocrPts+=6;
+		        		break;
+		        		case JSON.stringify([1,1,1,0,0,0,0,0,0]):
+		        			ocrPts+=7;
+		        		break;
+		        		case JSON.stringify([1,1,1,0,1,0,1,1,1]):
+		        			ocrPts+=8;
+		        		break;
+		        		case JSON.stringify([1,1,1,0,1,0,1,1,0]):
+		        			ocrPts+=9;
+		        		break;
+		        		default:
+		        			ocrPts+=-9999;
+		        		break;
+		        		}
 
-		        	switch (JSON.stringify(rgbArray.slice(10,19))) {
-		        	case JSON.stringify([1,1,1,0,0,0,1,1,1]):
-		        	case JSON.stringify([0,0,0,0,0,0,0,0,0]):
-		        		ocrPts+=0;
-		        	break;
-		        	case JSON.stringify([0,0,0,1,0,1,0,0,0]):
-		        		ocrPts+=10;
-		        	break;
-		        	case JSON.stringify([1,0,1,0,1,0,1,0,1]):
-		        		ocrPts+=20;
-		        	break;
-		        	case JSON.stringify([1,1,1,0,1,0,1,0,0]):
-		        		ocrPts+=30;
-		        	break;
-		        	case JSON.stringify([1,1,0,0,1,0,0,1,0]):
-		        		ocrPts+=40;
-		        	break;
-		        	case JSON.stringify([0,1,1,0,1,0,1,1,0]):
-		        		ocrPts+=50;
-		        	break;
-		        	case JSON.stringify([0,1,1,0,1,0,1,1,1]):
-		        		ocrPts+=60;
-		        	break;
-		        	case JSON.stringify([1,1,1,0,0,0,0,0,0]):
-		        		ocrPts+=70;
-		        	break;
-		        	case JSON.stringify([1,1,1,0,1,0,1,1,1]):
-		        		ocrPts+=80;
-		        	break;
-		        	case JSON.stringify([1,1,1,0,1,0,1,1,0]):
-		        		ocrPts+=90;
-		        	break;
-		        	default:
-		        		ocrPts+=-9999;
-		        	break;
-		        	}
+		        		switch (JSON.stringify(rgbArray.slice(10,19))) {
+		        		case JSON.stringify([1,1,1,0,0,0,1,1,1]):
+		        		case JSON.stringify([0,0,0,0,0,0,0,0,0]):
+		        			ocrPts+=0;
+		        		break;
+		        		case JSON.stringify([0,0,0,1,0,1,0,0,0]):
+		        			ocrPts+=10;
+		        		break;
+		        		case JSON.stringify([1,0,1,0,1,0,1,0,1]):
+		        			ocrPts+=20;
+		        		break;
+		        		case JSON.stringify([1,1,1,0,1,0,1,0,0]):
+		        			ocrPts+=30;
+		        		break;
+		        		case JSON.stringify([1,1,0,0,1,0,0,1,0]):
+		        			ocrPts+=40;
+		        		break;
+		        		case JSON.stringify([0,1,1,0,1,0,1,1,0]):
+		        			ocrPts+=50;
+		        		break;
+		        		case JSON.stringify([0,1,1,0,1,0,1,1,1]):
+		        			ocrPts+=60;
+		        		break;
+		        		case JSON.stringify([1,1,1,0,0,0,0,0,0]):
+		        			ocrPts+=70;
+		        		break;
+		        		case JSON.stringify([1,1,1,0,1,0,1,1,1]):
+		        			ocrPts+=80;
+		        		break;
+		        		case JSON.stringify([1,1,1,0,1,0,1,1,0]):
+		        			ocrPts+=90;
+		        		break;
+		        		default:
+		        			ocrPts+=-9999;
+		        		break;
+		        		}
 
-		        	switch (JSON.stringify(rgbArray.slice(19,21))) {
-		        	case JSON.stringify([0,0]):
-		        		ocrPts+=0;
-		        	break;
-		        	case JSON.stringify([1,1]):
-		        		ocrPts+=100;
-		        	break;
-		        	default:
-		        		ocrPts+=-9999;
-		        	break;
-		        	}
-		        	console.log(ocrPts);
+		        		switch (JSON.stringify(rgbArray.slice(19,21))) {
+		        		case JSON.stringify([0,0]):
+		        			ocrPts+=0;
+		        		break;
+		        		case JSON.stringify([1,1]):
+		        			ocrPts+=100;
+		        		break;
+		        		default:
+		        			ocrPts+=-9999;
+		        		break;
+		        		}
+		        		console.log(ocrPts);
 
-		        	if(ocrPts>=0) {
-		        		document.getElementById("pts_p"+img_spot).value = ocrPts;
-		        	} else {
-		        		document.getElementById("pts_p"+img_spot).value = "?";
+		        		if(ocrPts>=0) {
+		        			document.getElementById("pts_p"+img_spot).value = ocrPts;
+		        		}
 		        	}
 		        }
-
+		        if(ocrPts<0)
+		        	document.getElementById("pts_p"+img_spot).value = "?";
 				ctx.drawImage(img
 						, img_width*0.11, 0.127*img_height+0.058*img_height*img_spot, img_width*0.35, 0.05*img_height
 						, 0, 0, canvasWidth, canvasHeight);
@@ -1044,8 +1044,7 @@ window.onload = function() {
 							var ocrPts = 0;
 							var rgbArray = new Array(21);
 							var totalRgbArray = new Array(21);totalRgbArray[0]=0;
-							var border=400;
-							var border2=400;
+							var border = new Array(0,0,0,0,0,0);
 							var imagedata;
 							/*
 							 * 0:yellow or others
@@ -1149,14 +1148,14 @@ window.onload = function() {
 									if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 480) {
 										if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
 											maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
-											border=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
+											border[0]=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
 										}
 									}
 								}
-								console.log(img_spot+":::"+"border="+border+"->"+totalRgbArray);
+								console.log(img_spot+":::"+"border[0]="+border[0]+"->"+totalRgbArray);
 
 								for(k=1; k<=20; k++){
-									if(totalRgbArray[k]>border)
+									if(totalRgbArray[k]>border[0])
 										rgbArray[k]=1;
 									else
 										rgbArray[k]=0;
@@ -1327,134 +1326,135 @@ window.onload = function() {
 					        if(ocrPts>=0) { //succeeded in OCR
 					        	document.getElementById("pts_p"+img_spot).value = ocrPts;
 					        } else { //failed in OCR -> reset order
-					        	maxDiff=0;
-					        	for(var k=0; k<19; k++) {
-					        		if((350 < sortTotalRgbArray[k+1]) && (sortTotalRgbArray[k] < 480) && (border!=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2)) {
-					        			if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
-					        				maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
-					        				border2=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
+					        	for(var m=1; m<6&&ocrPts<0; m++) {
+					        		maxDiff=0;
+					        		for(var k=0; k<19; k++) {
+					        			if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 500 && border.indexOf((sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2)==-1) {
+					        				if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
+					        					maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
+					        					border[m]=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
+					        				}
 					        			}
 					        		}
-					        	}
-					        	console.log(img_spot+":::"+"border2="+border2+"->"+totalRgbArray);
+					        		console.log(img_spot+":::"+"border[m]="+border[m]+"->"+totalRgbArray);
 
-					        	for(k=1; k<=20; k++){
-					        		if(totalRgbArray[k]>border2)
-					        			rgbArray[k]=1;
-					        		else
-					        			rgbArray[k]=0;
-					        	}
+					        		for(k=1; k<=20; k++){
+					        			if(totalRgbArray[k]>border[m])
+					        				rgbArray[k]=1;
+					        			else
+					        				rgbArray[k]=0;
+					        		}
 
 
-					        	if(rgbArray[4]==1&&rgbArray[6]==1) {
-					        		rgbArray[3]=0;
-					        		rgbArray[5]=0;
-					        		rgbArray[7]=0;
-					        	}
-					        	if(rgbArray[13]==1&&rgbArray[15]==1) {
-					        		rgbArray[12]=0;
-					        		rgbArray[14]=0;
-					        		rgbArray[16]=0;
-					        	}
+					        		if(rgbArray[4]==1&&rgbArray[6]==1) {
+					        			rgbArray[3]=0;
+					        			rgbArray[5]=0;
+					        			rgbArray[7]=0;
+					        		}
+					        		if(rgbArray[13]==1&&rgbArray[15]==1) {
+					        			rgbArray[12]=0;
+					        			rgbArray[14]=0;
+					        			rgbArray[16]=0;
+					        		}
 
-					        	console.log(img_spot+" : "+rgbArray);
+					        		console.log(img_spot+" : "+rgbArray);
 
-					        	ocrPts = 0;
+					        		ocrPts = 0;
 
-					        	switch (JSON.stringify(rgbArray.slice(1,10))) {
-					        	case JSON.stringify([1,1,1,0,0,0,1,1,1]):
-					        	case JSON.stringify([0,0,0,0,0,0,0,0,0]):
-					        		ocrPts+=0;
-					        	break;
-					        	case JSON.stringify([0,0,0,1,0,1,0,0,0]):
-					        		ocrPts+=1;
-					        	break;
-					        	case JSON.stringify([1,0,1,0,1,0,1,0,1]):
-					        		ocrPts+=2;
-					        	break;
-					        	case JSON.stringify([1,1,1,0,1,0,1,0,0]):
-					        		ocrPts+=3;
-					        	break;
-					        	case JSON.stringify([1,1,0,0,1,0,0,1,0]):
-					        		ocrPts+=4;
-					        	break;
-					        	case JSON.stringify([0,1,1,0,1,0,1,1,0]):
-					        		ocrPts+=5;
-					        	break;
-					        	case JSON.stringify([0,1,1,0,1,0,1,1,1]):
-					        		ocrPts+=6;
-					        	break;
-					        	case JSON.stringify([1,1,1,0,0,0,0,0,0]):
-					        		ocrPts+=7;
-					        	break;
-					        	case JSON.stringify([1,1,1,0,1,0,1,1,1]):
-					        		ocrPts+=8;
-					        	break;
-					        	case JSON.stringify([1,1,1,0,1,0,1,1,0]):
-					        		ocrPts+=9;
-					        	break;
-					        	default:
-					        		ocrPts+=-9999;
-					        	break;
-					        	}
+					        		switch (JSON.stringify(rgbArray.slice(1,10))) {
+					        		case JSON.stringify([1,1,1,0,0,0,1,1,1]):
+					        		case JSON.stringify([0,0,0,0,0,0,0,0,0]):
+					        			ocrPts+=0;
+					        		break;
+					        		case JSON.stringify([0,0,0,1,0,1,0,0,0]):
+					        			ocrPts+=1;
+					        		break;
+					        		case JSON.stringify([1,0,1,0,1,0,1,0,1]):
+					        			ocrPts+=2;
+					        		break;
+					        		case JSON.stringify([1,1,1,0,1,0,1,0,0]):
+					        			ocrPts+=3;
+					        		break;
+					        		case JSON.stringify([1,1,0,0,1,0,0,1,0]):
+					        			ocrPts+=4;
+					        		break;
+					        		case JSON.stringify([0,1,1,0,1,0,1,1,0]):
+					        			ocrPts+=5;
+					        		break;
+					        		case JSON.stringify([0,1,1,0,1,0,1,1,1]):
+					        			ocrPts+=6;
+					        		break;
+					        		case JSON.stringify([1,1,1,0,0,0,0,0,0]):
+					        			ocrPts+=7;
+					        		break;
+					        		case JSON.stringify([1,1,1,0,1,0,1,1,1]):
+					        			ocrPts+=8;
+					        		break;
+					        		case JSON.stringify([1,1,1,0,1,0,1,1,0]):
+					        			ocrPts+=9;
+					        		break;
+					        		default:
+					        			ocrPts+=-9999;
+					        		break;
+					        		}
 
-					        	switch (JSON.stringify(rgbArray.slice(10,19))) {
-					        	case JSON.stringify([1,1,1,0,0,0,1,1,1]):
-					        	case JSON.stringify([0,0,0,0,0,0,0,0,0]):
-					        		ocrPts+=0;
-					        	break;
-					        	case JSON.stringify([0,0,0,1,0,1,0,0,0]):
-					        		ocrPts+=10;
-					        	break;
-					        	case JSON.stringify([1,0,1,0,1,0,1,0,1]):
-					        		ocrPts+=20;
-					        	break;
-					        	case JSON.stringify([1,1,1,0,1,0,1,0,0]):
-					        		ocrPts+=30;
-					        	break;
-					        	case JSON.stringify([1,1,0,0,1,0,0,1,0]):
-					        		ocrPts+=40;
-					        	break;
-					        	case JSON.stringify([0,1,1,0,1,0,1,1,0]):
-					        		ocrPts+=50;
-					        	break;
-					        	case JSON.stringify([0,1,1,0,1,0,1,1,1]):
-					        		ocrPts+=60;
-					        	break;
-					        	case JSON.stringify([1,1,1,0,0,0,0,0,0]):
-					        		ocrPts+=70;
-					        	break;
-					        	case JSON.stringify([1,1,1,0,1,0,1,1,1]):
-					        		ocrPts+=80;
-					        	break;
-					        	case JSON.stringify([1,1,1,0,1,0,1,1,0]):
-					        		ocrPts+=90;
-					        	break;
-					        	default:
-					        		ocrPts+=-9999;
-					        	break;
-					        	}
+					        		switch (JSON.stringify(rgbArray.slice(10,19))) {
+					        		case JSON.stringify([1,1,1,0,0,0,1,1,1]):
+					        		case JSON.stringify([0,0,0,0,0,0,0,0,0]):
+					        			ocrPts+=0;
+					        		break;
+					        		case JSON.stringify([0,0,0,1,0,1,0,0,0]):
+					        			ocrPts+=10;
+					        		break;
+					        		case JSON.stringify([1,0,1,0,1,0,1,0,1]):
+					        			ocrPts+=20;
+					        		break;
+					        		case JSON.stringify([1,1,1,0,1,0,1,0,0]):
+					        			ocrPts+=30;
+					        		break;
+					        		case JSON.stringify([1,1,0,0,1,0,0,1,0]):
+					        			ocrPts+=40;
+					        		break;
+					        		case JSON.stringify([0,1,1,0,1,0,1,1,0]):
+					        			ocrPts+=50;
+					        		break;
+					        		case JSON.stringify([0,1,1,0,1,0,1,1,1]):
+					        			ocrPts+=60;
+					        		break;
+					        		case JSON.stringify([1,1,1,0,0,0,0,0,0]):
+					        			ocrPts+=70;
+					        		break;
+					        		case JSON.stringify([1,1,1,0,1,0,1,1,1]):
+					        			ocrPts+=80;
+					        		break;
+					        		case JSON.stringify([1,1,1,0,1,0,1,1,0]):
+					        			ocrPts+=90;
+					        		break;
+					        		default:
+					        			ocrPts+=-9999;
+					        		break;
+					        		}
 
-					        	switch (JSON.stringify(rgbArray.slice(19,21))) {
-					        	case JSON.stringify([0,0]):
-					        		ocrPts+=0;
-					        	break;
-					        	case JSON.stringify([1,1]):
-					        		ocrPts+=100;
-					        	break;
-					        	default:
-					        		ocrPts+=-9999;
-					        	break;
-					        	}
-					        	console.log(ocrPts);
+					        		switch (JSON.stringify(rgbArray.slice(19,21))) {
+					        		case JSON.stringify([0,0]):
+					        			ocrPts+=0;
+					        		break;
+					        		case JSON.stringify([1,1]):
+					        			ocrPts+=100;
+					        		break;
+					        		default:
+					        			ocrPts+=-9999;
+					        		break;
+					        		}
+					        		console.log(ocrPts);
 
-					        	if(ocrPts>=0) {
-					        		document.getElementById("pts_p"+img_spot).value = ocrPts;
-					        	} else {
-					        		document.getElementById("pts_p"+img_spot).value = "?";
+					        		if(ocrPts>=0) {
+					        			document.getElementById("pts_p"+img_spot).value = ocrPts;
+					        		}
 					        	}
 					        }
-
+					        if(ocrPts<0)
+					        	document.getElementById("pts_p"+img_spot).value = "?";
 							ctx.drawImage(img
 									, img_width*0.11, 0.127*img_height+0.058*img_height*img_spot, img_width*0.35, 0.05*img_height
 									, 0, 0, canvasWidth, canvasHeight);
@@ -1772,8 +1772,7 @@ function reload() {
 					var ocrPts = 0;
 					var rgbArray = new Array(21);
 					var totalRgbArray = new Array(21);totalRgbArray[0]=0;
-					var border=400;
-					var border2=400;
+					var border = new Array(0,0,0,0,0,0);
 					var imagedata;
 					/*
 					 * 0:yellow or others
@@ -1877,14 +1876,14 @@ function reload() {
 							if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 480) {
 								if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
 									maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
-									border=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
+									border[0]=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
 								}
 							}
 						}
-						console.log(img_spot+":::"+"border="+border+"->"+totalRgbArray);
+						console.log(img_spot+":::"+"border[0]="+border[0]+"->"+totalRgbArray);
 
 						for(k=1; k<=20; k++){
-							if(totalRgbArray[k]>border)
+							if(totalRgbArray[k]>border[0])
 								rgbArray[k]=1;
 							else
 								rgbArray[k]=0;
@@ -2055,134 +2054,135 @@ function reload() {
 			        if(ocrPts>=0) { //succeeded in OCR
 			        	document.getElementById("pts_p"+img_spot).value = ocrPts;
 			        } else { //failed in OCR -> reset order
-			        	maxDiff=0;
-			        	for(var k=0; k<19; k++) {
-			        		if((350 < sortTotalRgbArray[k+1]) && (sortTotalRgbArray[k] < 480) && (border!=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2)) {
-			        			if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
-			        				maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
-			        				border2=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
+			        	for(var m=1; m<6&&ocrPts<0; m++) {
+			        		maxDiff=0;
+			        		for(var k=0; k<19; k++) {
+			        			if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 500 && border.indexOf((sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2)==-1) {
+			        				if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
+			        					maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
+			        					border[m]=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
+			        				}
 			        			}
 			        		}
-			        	}
-			        	console.log(img_spot+":::"+"border2="+border2+"->"+totalRgbArray);
+			        		console.log(img_spot+":::"+"border[m]="+border[m]+"->"+totalRgbArray);
 
-			        	for(k=1; k<=20; k++){
-			        		if(totalRgbArray[k]>border2)
-			        			rgbArray[k]=1;
-			        		else
-			        			rgbArray[k]=0;
-			        	}
+			        		for(k=1; k<=20; k++){
+			        			if(totalRgbArray[k]>border[m])
+			        				rgbArray[k]=1;
+			        			else
+			        				rgbArray[k]=0;
+			        		}
 
 
-			        	if(rgbArray[4]==1&&rgbArray[6]==1) {
-			        		rgbArray[3]=0;
-			        		rgbArray[5]=0;
-			        		rgbArray[7]=0;
-			        	}
-			        	if(rgbArray[13]==1&&rgbArray[15]==1) {
-			        		rgbArray[12]=0;
-			        		rgbArray[14]=0;
-			        		rgbArray[16]=0;
-			        	}
+			        		if(rgbArray[4]==1&&rgbArray[6]==1) {
+			        			rgbArray[3]=0;
+			        			rgbArray[5]=0;
+			        			rgbArray[7]=0;
+			        		}
+			        		if(rgbArray[13]==1&&rgbArray[15]==1) {
+			        			rgbArray[12]=0;
+			        			rgbArray[14]=0;
+			        			rgbArray[16]=0;
+			        		}
 
-			        	console.log(img_spot+" : "+rgbArray);
+			        		console.log(img_spot+" : "+rgbArray);
 
-			        	ocrPts = 0;
+			        		ocrPts = 0;
 
-			        	switch (JSON.stringify(rgbArray.slice(1,10))) {
-			        	case JSON.stringify([1,1,1,0,0,0,1,1,1]):
-			        	case JSON.stringify([0,0,0,0,0,0,0,0,0]):
-			        		ocrPts+=0;
-			        	break;
-			        	case JSON.stringify([0,0,0,1,0,1,0,0,0]):
-			        		ocrPts+=1;
-			        	break;
-			        	case JSON.stringify([1,0,1,0,1,0,1,0,1]):
-			        		ocrPts+=2;
-			        	break;
-			        	case JSON.stringify([1,1,1,0,1,0,1,0,0]):
-			        		ocrPts+=3;
-			        	break;
-			        	case JSON.stringify([1,1,0,0,1,0,0,1,0]):
-			        		ocrPts+=4;
-			        	break;
-			        	case JSON.stringify([0,1,1,0,1,0,1,1,0]):
-			        		ocrPts+=5;
-			        	break;
-			        	case JSON.stringify([0,1,1,0,1,0,1,1,1]):
-			        		ocrPts+=6;
-			        	break;
-			        	case JSON.stringify([1,1,1,0,0,0,0,0,0]):
-			        		ocrPts+=7;
-			        	break;
-			        	case JSON.stringify([1,1,1,0,1,0,1,1,1]):
-			        		ocrPts+=8;
-			        	break;
-			        	case JSON.stringify([1,1,1,0,1,0,1,1,0]):
-			        		ocrPts+=9;
-			        	break;
-			        	default:
-			        		ocrPts+=-9999;
-			        	break;
-			        	}
+			        		switch (JSON.stringify(rgbArray.slice(1,10))) {
+			        		case JSON.stringify([1,1,1,0,0,0,1,1,1]):
+			        		case JSON.stringify([0,0,0,0,0,0,0,0,0]):
+			        			ocrPts+=0;
+			        		break;
+			        		case JSON.stringify([0,0,0,1,0,1,0,0,0]):
+			        			ocrPts+=1;
+			        		break;
+			        		case JSON.stringify([1,0,1,0,1,0,1,0,1]):
+			        			ocrPts+=2;
+			        		break;
+			        		case JSON.stringify([1,1,1,0,1,0,1,0,0]):
+			        			ocrPts+=3;
+			        		break;
+			        		case JSON.stringify([1,1,0,0,1,0,0,1,0]):
+			        			ocrPts+=4;
+			        		break;
+			        		case JSON.stringify([0,1,1,0,1,0,1,1,0]):
+			        			ocrPts+=5;
+			        		break;
+			        		case JSON.stringify([0,1,1,0,1,0,1,1,1]):
+			        			ocrPts+=6;
+			        		break;
+			        		case JSON.stringify([1,1,1,0,0,0,0,0,0]):
+			        			ocrPts+=7;
+			        		break;
+			        		case JSON.stringify([1,1,1,0,1,0,1,1,1]):
+			        			ocrPts+=8;
+			        		break;
+			        		case JSON.stringify([1,1,1,0,1,0,1,1,0]):
+			        			ocrPts+=9;
+			        		break;
+			        		default:
+			        			ocrPts+=-9999;
+			        		break;
+			        		}
 
-			        	switch (JSON.stringify(rgbArray.slice(10,19))) {
-			        	case JSON.stringify([1,1,1,0,0,0,1,1,1]):
-			        	case JSON.stringify([0,0,0,0,0,0,0,0,0]):
-			        		ocrPts+=0;
-			        	break;
-			        	case JSON.stringify([0,0,0,1,0,1,0,0,0]):
-			        		ocrPts+=10;
-			        	break;
-			        	case JSON.stringify([1,0,1,0,1,0,1,0,1]):
-			        		ocrPts+=20;
-			        	break;
-			        	case JSON.stringify([1,1,1,0,1,0,1,0,0]):
-			        		ocrPts+=30;
-			        	break;
-			        	case JSON.stringify([1,1,0,0,1,0,0,1,0]):
-			        		ocrPts+=40;
-			        	break;
-			        	case JSON.stringify([0,1,1,0,1,0,1,1,0]):
-			        		ocrPts+=50;
-			        	break;
-			        	case JSON.stringify([0,1,1,0,1,0,1,1,1]):
-			        		ocrPts+=60;
-			        	break;
-			        	case JSON.stringify([1,1,1,0,0,0,0,0,0]):
-			        		ocrPts+=70;
-			        	break;
-			        	case JSON.stringify([1,1,1,0,1,0,1,1,1]):
-			        		ocrPts+=80;
-			        	break;
-			        	case JSON.stringify([1,1,1,0,1,0,1,1,0]):
-			        		ocrPts+=90;
-			        	break;
-			        	default:
-			        		ocrPts+=-9999;
-			        	break;
-			        	}
+			        		switch (JSON.stringify(rgbArray.slice(10,19))) {
+			        		case JSON.stringify([1,1,1,0,0,0,1,1,1]):
+			        		case JSON.stringify([0,0,0,0,0,0,0,0,0]):
+			        			ocrPts+=0;
+			        		break;
+			        		case JSON.stringify([0,0,0,1,0,1,0,0,0]):
+			        			ocrPts+=10;
+			        		break;
+			        		case JSON.stringify([1,0,1,0,1,0,1,0,1]):
+			        			ocrPts+=20;
+			        		break;
+			        		case JSON.stringify([1,1,1,0,1,0,1,0,0]):
+			        			ocrPts+=30;
+			        		break;
+			        		case JSON.stringify([1,1,0,0,1,0,0,1,0]):
+			        			ocrPts+=40;
+			        		break;
+			        		case JSON.stringify([0,1,1,0,1,0,1,1,0]):
+			        			ocrPts+=50;
+			        		break;
+			        		case JSON.stringify([0,1,1,0,1,0,1,1,1]):
+			        			ocrPts+=60;
+			        		break;
+			        		case JSON.stringify([1,1,1,0,0,0,0,0,0]):
+			        			ocrPts+=70;
+			        		break;
+			        		case JSON.stringify([1,1,1,0,1,0,1,1,1]):
+			        			ocrPts+=80;
+			        		break;
+			        		case JSON.stringify([1,1,1,0,1,0,1,1,0]):
+			        			ocrPts+=90;
+			        		break;
+			        		default:
+			        			ocrPts+=-9999;
+			        		break;
+			        		}
 
-			        	switch (JSON.stringify(rgbArray.slice(19,21))) {
-			        	case JSON.stringify([0,0]):
-			        		ocrPts+=0;
-			        	break;
-			        	case JSON.stringify([1,1]):
-			        		ocrPts+=100;
-			        	break;
-			        	default:
-			        		ocrPts+=-9999;
-			        	break;
-			        	}
-			        	console.log(ocrPts);
+			        		switch (JSON.stringify(rgbArray.slice(19,21))) {
+			        		case JSON.stringify([0,0]):
+			        			ocrPts+=0;
+			        		break;
+			        		case JSON.stringify([1,1]):
+			        			ocrPts+=100;
+			        		break;
+			        		default:
+			        			ocrPts+=-9999;
+			        		break;
+			        		}
+			        		console.log(ocrPts);
 
-			        	if(ocrPts>=0) {
-			        		document.getElementById("pts_p"+img_spot).value = ocrPts;
-			        	} else {
-			        		document.getElementById("pts_p"+img_spot).value = "?";
+			        		if(ocrPts>=0) {
+			        			document.getElementById("pts_p"+img_spot).value = ocrPts;
+			        		}
 			        	}
 			        }
-
+			        if(ocrPts<0)
+			        	document.getElementById("pts_p"+img_spot).value = "?";
 					ctx.drawImage(img
 							, img_width*0.11, 0.127*img_height+0.058*img_height*img_spot, img_width*0.35, 0.05*img_height
 							, 0, 0, canvasWidth, canvasHeight);
