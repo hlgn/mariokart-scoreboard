@@ -15,6 +15,7 @@ var teampts = new Array(6); //pts of team x
 var maxteam = new Array(6);
 var displayed = new Array(12); //already displayed = 1, not yet = 0
 var margin = new Array(12);
+var dcplayer = new Array(3);
 
 
 var today = new Date();
@@ -115,6 +116,52 @@ function canvasDraw1() {
 		teampts[team[p]]+=pts[p];
 		totalpts+=pts[p];
 	}
+	for(var p=0;p<3;p++) {
+		dcplayer[p] = Number(document.getElementById('select'+Number(p)).selectedIndex)-1;
+		if(dcplayer[p]!=-1) {
+			teampts[team[dcplayer[p]]]-=pts[dcplayer[p]];
+			totalpts-=pts[dcplayer[p]];
+			ptsString[dcplayer[p]] = document.getElementById('dcpts_p'+Number(p)).value;
+			if(isNaN(ptsString[dcplayer[p]])){
+				tmppts=0;
+				pts[dcplayer[p]]=0;
+				pORn=1;
+				for(var a=0;a<ptsString[dcplayer[p]].length;a++){
+					if(!isNaN(ptsString[dcplayer[p]].charAt(a))&&ptsString[dcplayer[p]].charAt(a)!=null&&ptsString[dcplayer[p]].charAt(a).indexOf(' ')!=0){//数値の時
+						tmppts=tmppts*10+pORn*Number(ptsString[dcplayer[p]].charAt(a));
+					} else if(ptsString[dcplayer[p]].charAt(a)=='+' || ptsString[dcplayer[p]].charAt(a).indexOf(' ')==0){
+						pts[dcplayer[p]]+=tmppts;
+						tmppts=0;
+						pORn=1;
+					} else if(ptsString[dcplayer[p]].charAt(a)=='-'){
+						pts[dcplayer[p]]+=tmppts;
+						tmppts=0;
+						pORn=-1;
+					} else {
+						switch (lang) {
+						case 'eng':
+							alert('player'+(dcplayer[p]+1)+' - pts\nincluded \''+ptsString[dcplayer[p]].charAt(a)+'\' (in \"'+ptsString[dcplayer[p]]+'\")\nYou can only use number, \'+\' and \'-\'');
+							break;
+						case 'jpn':
+							alert('player'+(dcplayer[p]+1)+'の個人点の \"'+ptsString[dcplayer[p]]+'\"の中に\''+ptsString[dcplayer[p]].charAt(a)+'\'が含まれています\n数字と \'+\'、 \'-\'のみを使用してください');
+							break;
+						}
+						return;
+					}
+				}
+				pts[dcplayer[p]]+=tmppts;
+			} else {
+				pts[dcplayer[p]]=Number(ptsString[dcplayer[p]]);
+			}
+			element_radio = document.getElementsByName('dcteam_p'+Number(p));
+			for(var a=0; a<element_radio.length; a++){
+				if(element_radio[a].checked)
+					team[dcplayer[p]] = a;
+			}
+			teampts[team[dcplayer[p]]]+=pts[dcplayer[p]];
+			totalpts+=pts[dcplayer[p]];
+		}
+	}
 	switch (lang) {
 	case 'eng':
 		if(totalpts%82==0) {
@@ -135,7 +182,7 @@ function canvasDraw1() {
 		if(totalpts%82==0) {
 			document.getElementById('total').innerHTML=totalpts+"点 (12人 : "+(totalpts/82)+"レース)";
 		} else {
-			document.getElementById('total').innerHTML=totalpts+"点 (12人 : "+parseInt(totalpts/82+1)+"レース<span style=\"color:red\"> - "+(82-totalpts%82)+"点</span>)";	
+			document.getElementById('total').innerHTML=totalpts+"点 (12人 : "+parseInt(totalpts/82+1)+"レース<span style=\"color:red\"> - "+(82-totalpts%82)+"点</span>)";
 		}
 		break;
 	}
@@ -147,7 +194,7 @@ function canvasDraw1() {
 			margin[p]=marginChecker(teamname[p]);
 		}
 	}
-	
+
 	//player rank
 	rank=[0,0,0,0,0,0,0,0,0,0,0,0];
 	infinite=0;
@@ -462,15 +509,52 @@ function canvasDraw1() {
 							ctx.drawImage(img
 									,img_width*0.742, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.045, 0.05*img_height
 									,4+390+180*(1-0.045/0.255),35+35*player_spot,180*(0.045/0.255),25); //国旗
+							for(var n=0; n<3; n++) {
+								if(dcplayer[n]==display_player) {
+									ctx.drawImage(img
+											,img_width*0.712, 0.008*img_height+0.072*img_height*(display_player+1), img_width*0.03, 0.05*img_height
+											,390,35+35*player_spot,184,25);
+									ctx.textAlign = 'start';
+									ctx.lineWidth = 1;
+									var imagedata=ctx.getImageData(390,35+35*player_spot,184,25);
+									if((imagedata.data[0]+imagedata.data[1]-imagedata.data[2])>380) {
+										ctx.fillStyle = '#000';
+									} else {
+										ctx.fillStyle = '#fff';
+									}
+									ctx.fillText(document.getElementById('dcname'+n).value.trim(), 394, 35+12.5+35*player_spot, 180);
+								}
+							}
 							break;
 
 						case 1:
 							ctx.drawImage(img
-									,img_width*(0.12+margin[s]*1.1), 0.127*img_height+0.058*img_height*(display_player+1), img_width*(0.24-margin[s]*1.1), 0.05*img_height
+									,img_width*0.11, 0.127*img_height+0.058*img_height*(display_player+1), img_width*0.24, 0.05*img_height
 									,390,35+35*player_spot,180-canvasWidth*margin[s]*1.1,25); //画像表示
 							ctx.drawImage(img
+									,img_width*(0.12+margin[s]*1.1), 0.127*img_height+0.058*img_height*(display_player+1), img_width*(0.24-margin[s]*1.1), 0.05*img_height
+									,4+390,35+35*player_spot,180-canvasWidth*margin[s]*1.1,25); //画像表示
+							ctx.drawImage(img
 									,img_width*0.32, 0.127*img_height+0.058*img_height*(display_player+1), img_width*0.04, 0.05*img_height
-									,540-canvasWidth*margin[s]*1.1,35+35*player_spot,30+canvasWidth*margin[s]*1.1,25); //margin
+									,4+540-canvasWidth*margin[s]*1.1,35+35*player_spot,30+canvasWidth*margin[s]*1.1,25); //margin
+							for(var n=0; n<3; n++) {
+								if(dcplayer[n]==display_player) {
+									ctx.drawImage(img
+											,img_width*0.32, 0.127*img_height+0.058*img_height*(display_player+1), img_width*0.04, 0.05*img_height
+											,390,35+35*player_spot,184,25);
+									ctx.textAlign = 'start';
+									ctx.lineWidth = 1;
+									var imagedata=ctx.getImageData(390,35+35*player_spot,184,25);
+									if((imagedata.data[0]+imagedata.data[1]-imagedata.data[2])>380) {
+										ctx.fillStyle = '#000';
+									} else {
+										ctx.fillStyle = '#fff';
+										ctx.globalAlpha = 0.7;
+									}
+									ctx.fillText(document.getElementById('dcname'+n).value.trim(), 394, 35+12.5+35*player_spot, 180);
+									ctx.globalAlpha = 1;
+								}
+							}
 							break;
 
 						default:
