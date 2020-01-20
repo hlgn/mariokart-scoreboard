@@ -24,13 +24,13 @@ switch (lang) {
 		document.write("<tr><td colspan=\"9\">↓ for disconnected player(CPU)</td></tr>");
 		for(i=0;i<3;i++){
 			document.write("<tr>");
-			document.write("<td><select id=\"select"+i+"\">");
+			document.write("<td><select id=\"select"+i+"\" style=\"width:90%\">");
 			document.write("<option value=\"0\">-</option>");
 			for(j=1;j<=12;j++){
 				document.write("<option value=\""+j+"\">p"+j+"</option>");
 			}
 			document.write("</select></td>");
-			document.write("<td><input type=\"text\" id=dcname"+i+"></td>");
+			document.write("<td><input type=\"text\" id=dcname"+i+" style=\"width:90%\"></td>");
 			document.write("<td><input type=\"text\" class=\"tb_pts\" id=\"dcpts_p" +i+ "\"></td>");
 			document.write("<td><label class=\"label_radio\"><input type=\"radio\" name=\"dcteam_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
 			for(j=2;j<=6;j++)
@@ -62,13 +62,13 @@ switch (lang) {
 		document.write("<tr><td colspan=\"9\">↓ プレイヤー名のテキスト入力（回線落ち用）</td></tr>");
 		for(i=0;i<3;i++){
 			document.write("<tr>");
-			document.write("<td><select id=\"select"+i+"\">");
+			document.write("<td><select id=\"select"+i+"\" style=\"width:90%\">");
 			document.write("<option value=\"0\">-</option>");
 			for(j=1;j<=12;j++){
 				document.write("<option value=\""+j+"\">p"+j+"</option>");
 			}
 			document.write("</select></td>");
-			document.write("<td><input type=\"text\" id=dcname"+i+"></td>");
+			document.write("<td><input type=\"text\" id=dcname"+i+" style=\"width:90%\"></td>");
 			document.write("<td><input type=\"text\" class=\"tb_pts\" id=\"dcpts_p" +i+ "\"></td>");
 			document.write("<td><label class=\"label_radio\"><input type=\"radio\" name=\"dcteam_p" +i+ "\"  value=\"1\" checked=\"checked\"></label></td>");
 			for(j=2;j<=6;j++)
