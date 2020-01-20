@@ -350,7 +350,7 @@ function img_table(img_spot) {
 				var ocrPts = 0;
 				var rgbArray = new Array(21);
 				var totalRgbArray = new Array(21);totalRgbArray[0]=0;
-				var border = new Array(0,0,0,0,0,0);
+				var border = new Array(0,0,0,0,0,0,0,0,0,0,0,0);
 				var imagedata;
 				/*
 				 * 0:yellow or others
@@ -443,15 +443,15 @@ function img_table(img_spot) {
 					/*
 					ボーダーの決め方
 					rgbの合計値を昇順にソートし、最も差が開いている隣り合った二値の平均をボーダーとする
-					ただし、
+					(ただし、
 					rgbの数値が大きいグループの最小値が350より大きく
-					rgbの数値が小さいグループの最大値が480より小さくなるようにする。
+					rgbの数値が小さいグループの最大値が480より小さくなるようにする。)<-廃止
 
 					認識に失敗したとき:
 					次に差が開いている隣り合った二値の平均をボーダーとする
 					*/
 					for(var k=0; k<19; k++) {
-						if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 480) {
+						if(350 < sortTotalRgbArray[k+1]/* && sortTotalRgbArray[k] < 480*/) {
 							if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
 								maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
 								border[0]=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
@@ -632,7 +632,7 @@ function img_table(img_spot) {
 		        if(ocrPts>=0) { //succeeded in OCR
 		        	document.getElementById("pts_p"+img_spot).value = ocrPts;
 		        } else { //failed in OCR -> reset order
-		        	for(var m=1; m<6&&ocrPts<0; m++) {
+		        	for(var m=1; m<12&&ocrPts<0; m++) {
 		        		maxDiff=0;
 		        		for(var k=0; k<19; k++) {
 		        			if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 500 && border.indexOf((sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2)==-1) {
@@ -1076,7 +1076,7 @@ window.onload = function() {
 							var ocrPts = 0;
 							var rgbArray = new Array(21);
 							var totalRgbArray = new Array(21);totalRgbArray[0]=0;
-							var border = new Array(0,0,0,0,0,0);
+							var border = new Array(0,0,0,0,0,0,0,0,0,0,0,0);
 							var imagedata;
 							/*
 							 * 0:yellow or others
@@ -1169,15 +1169,15 @@ window.onload = function() {
 								/*
 								ボーダーの決め方
 								rgbの合計値を昇順にソートし、最も差が開いている隣り合った二値の平均をボーダーとする
-								ただし、
+								(ただし、
 								rgbの数値が大きいグループの最小値が350より大きく
-								rgbの数値が小さいグループの最大値が480より小さくなるようにする。
+								rgbの数値が小さいグループの最大値が480より小さくなるようにする。)<-廃止
 
 								認識に失敗したとき:
 								次に差が開いている隣り合った二値の平均をボーダーとする
 								*/
 								for(var k=0; k<19; k++) {
-									if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 480) {
+									if(350 < sortTotalRgbArray[k+1]/* && sortTotalRgbArray[k] < 480*/) {
 										if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
 											maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
 											border[0]=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
@@ -1358,7 +1358,7 @@ window.onload = function() {
 					        if(ocrPts>=0) { //succeeded in OCR
 					        	document.getElementById("pts_p"+img_spot).value = ocrPts;
 					        } else { //failed in OCR -> reset order
-					        	for(var m=1; m<6&&ocrPts<0; m++) {
+					        	for(var m=1; m<12&&ocrPts<0; m++) {
 					        		maxDiff=0;
 					        		for(var k=0; k<19; k++) {
 					        			if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 500 && border.indexOf((sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2)==-1) {
@@ -1804,7 +1804,7 @@ function reload() {
 					var ocrPts = 0;
 					var rgbArray = new Array(21);
 					var totalRgbArray = new Array(21);totalRgbArray[0]=0;
-					var border = new Array(0,0,0,0,0,0);
+					var border = new Array(0,0,0,0,0,0,0,0,0,0,0,0);
 					var imagedata;
 					/*
 					 * 0:yellow or others
@@ -1897,15 +1897,15 @@ function reload() {
 						/*
 						ボーダーの決め方
 						rgbの合計値を昇順にソートし、最も差が開いている隣り合った二値の平均をボーダーとする
-						ただし、
+						(ただし、
 						rgbの数値が大きいグループの最小値が350より大きく
-						rgbの数値が小さいグループの最大値が480より小さくなるようにする。
+						rgbの数値が小さいグループの最大値が480より小さくなるようにする。)<-廃止
 
 						認識に失敗したとき:
 						次に差が開いている隣り合った二値の平均をボーダーとする
 						*/
 						for(var k=0; k<19; k++) {
-							if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 480) {
+							if(350 < sortTotalRgbArray[k+1]/* && sortTotalRgbArray[k] < 480*/) {
 								if(maxDiff<sortTotalRgbArray[k+1]-sortTotalRgbArray[k]) {
 									maxDiff=sortTotalRgbArray[k+1]-sortTotalRgbArray[k];
 									border[0]=(sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2;
@@ -2086,7 +2086,7 @@ function reload() {
 			        if(ocrPts>=0) { //succeeded in OCR
 			        	document.getElementById("pts_p"+img_spot).value = ocrPts;
 			        } else { //failed in OCR -> reset order
-			        	for(var m=1; m<6&&ocrPts<0; m++) {
+			        	for(var m=1; m<12&&ocrPts<0; m++) {
 			        		maxDiff=0;
 			        		for(var k=0; k<19; k++) {
 			        			if(350 < sortTotalRgbArray[k+1] && sortTotalRgbArray[k] < 500 && border.indexOf((sortTotalRgbArray[k+1]+sortTotalRgbArray[k])/2)==-1) {
