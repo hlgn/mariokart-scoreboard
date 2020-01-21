@@ -24,7 +24,7 @@ switch (lang) {
 		document.write("<tr><td colspan=\"9\">↓ for disconnected player(CPU)</td></tr>");
 		for(i=0;i<3;i++){
 			document.write("<tr>");
-			document.write("<td><select id=\"select"+i+"\" style=\"width:3em\">");
+			document.write("<td><select id=\"select"+i+"\">");
 			document.write("<option value=\"0\">-</option>");
 			for(j=1;j<=12;j++){
 				document.write("<option value=\""+j+"\">p"+j+"</option>");
@@ -62,7 +62,7 @@ switch (lang) {
 		document.write("<tr><td colspan=\"9\">↓ プレイヤー名のテキスト入力（回線落ち用）</td></tr>");
 		for(i=0;i<3;i++){
 			document.write("<tr>");
-			document.write("<td><select id=\"select"+i+"\" style=\"width:3em\">");
+			document.write("<td><select id=\"select"+i+"\">");
 			document.write("<option value=\"0\">-</option>");
 			for(j=1;j<=12;j++){
 				document.write("<option value=\""+j+"\">p"+j+"</option>");
