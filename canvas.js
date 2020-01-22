@@ -52,6 +52,7 @@ function loadLocalImage(e) {
 	reader.onload = function() {
 		// Canvas上に表示する
 		uploadImgSrc = reader.result;
+		document.getElementById("img_result").src = uploadImgSrc;
 		//canvasDraw1();
 	}
 	// ファイル読み込みを実行
