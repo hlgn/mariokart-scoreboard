@@ -121,6 +121,24 @@ body {
 	display: none;
 }
 
+#img_result_parent {
+	margin-left: 5%;
+	width: 40%;
+	padding-top: 22.25%;
+	background-color: black;
+	position: relative;
+}
+
+#img_result {
+	margin-left: 0;
+	width: 100%;
+	max-height: 100%;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	object-fit: cover;
+}
+
 .table1 {
 /* 	width: 100%; */
 /* 	background-color: #f5f5f5; */
@@ -360,6 +378,22 @@ bottom: 5px;
 		display: none;
 	}
 
+	#img_result_parent {
+		margin: auto;
+		width: 80%;
+		padding-top: 45%;
+		background-color: black;
+		position: relative;
+	}
+	#img_result {
+		margin-left: 0;
+		width: 100%;
+		max-height: 100%;
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		object-fit: cover;
+	}
 	.canvas {
 		width: 100%;
 		height: auto;
