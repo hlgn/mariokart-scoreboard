@@ -28,12 +28,11 @@
 	<br> (1)
 	<br> ↓Paste the full text by Boo bot (including "!scoreboard")
 	<br> (↓ここに!scoreboardを含む全文をペーストしてください。)
-	<input type="button" value="load example" onclick="loadExample();" style="height:2em">
+	<input type="button" value="load example" onclick="loadExample();"  id="loadExample">
 	<br>
-	<textarea id="inputText" style="width: 80%; height: 10em"></textarea>
+	<textarea id="inputText"></textarea>
 	<br>
-	<br> (2)
-	<br>
+	<br> (2)<br>
 	<br>
 	<label for="convert" id="label_button_reload"> convert text <input
 		type="button" value="convert" onclick="converter();" id="convert">
@@ -41,12 +40,13 @@
 	<br>
 	<br>
 	<br>
-	<textarea id="outputText" style="width: 80%; height: 20em"></textarea>
+	<textarea id="outputText"></textarea>
 	<br>
 	<br>
 	<!-- <input type="button" value="クリップボードにコピー" onclick="copy();"><br>
 	<br>-->
-	(3)jump to this link
+	(3)<br>
+	↓jump to this link
 	<br>
 	<br>
 	<label for="link" id="label_button_reload"> <a id="link"
