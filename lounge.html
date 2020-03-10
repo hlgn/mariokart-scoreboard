@@ -14,19 +14,50 @@
 	<div id="header">
 		<!--<img src="./images/icon_transparent.png" class="icon">-->
 		<span id="header_title" style="display: inline-block"><span
-			class="css-br">Converter </span>for Lounge</span><!-- <span id="select_language">
+			class="css-br">Converter </span>for Lounge</span>
+		<span id="select_language">
+			<a href="https://hlgn.github.io/mariokart-scoreboard"style="color:white">MarioKart<br>Scoreboard<br></a>
+			<!--
 			<a href="./test_jpn.html" class="lang_text"><img
 				src="./images/jpn.png" class="img_flag"> 日本語 </a> / <img
 			src="./images/us.png" class="img_flag"><img
 			src="./images/gb.png" class="img_flag"> English
-		</span>-->
+			-->
+		</span>
 	</div>
+	<br> (1)
+	<br> ↓Paste the full text by Boo bot (including "!scoreboard")
+	<br> (↓ここに!scoreboardを含む全文をペーストしてください。)
+	<input type="button" value="load example" onclick="loadExample();">
 	<br>
-	↓ここに!scoreboardを含む全文をペーストしてください。<br>
-	<textarea id="inputText" style="width:80%;  height:10em"></textarea> <br>
-	<input type="button" value="変換" onclick="converter();"><br><br><br>
-	<textarea id="outputText" style="width:80%; height:20em"></textarea> <br>
-	<input type="button" value="クリップボードにコピー" onclick="copy();"><br>
+	<textarea id="inputText" style="width: 80%; height: 10em"></textarea>
+	<br>
+	<br> (2)
+	<br>
+	<br>
+	<label for="convert" id="label_button_reload"> convert text <input
+		type="button" value="convert" onclick="converter();" id="convert">
+	</label>
+	<br>
+	<br>
+	<br>
+	<textarea id="outputText" style="width: 80%; height: 20em"></textarea>
+	<br>
+	<br>
+	<!-- <input type="button" value="クリップボードにコピー" onclick="copy();"><br>
+	<br>-->
+	(3)jump to this link
+	<br>
+	<br>
+	<label for="link" id="label_button_reload"> <a id="link"
+		href="https://gb.hlorenzi.com/table"
+		style="text-decoration: none; color: #fff">make table (hlorenzi's
+			table maker)</a>
+	</label>
+	<br>
+	<br>
+	<br>
+	<br>
 	<br>
 	<br>
 	<div id="blank"></div>
