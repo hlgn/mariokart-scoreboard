@@ -23,7 +23,7 @@ function converter() {
 		output = String('');
 		link = String('');
 		for (i = 0; i < 6; i++) {
-			output = output + '\nTeam ' + (i + 1) + ' - *\n';
+			output = output + '\nTeam ' + (i + 1) + ' - .\n';
 			link = link + '%0ATeam ' + (i + 1) + ' - *%0A';
 			for (j = 0; j < 2; j++) {
 				output = output + member[i * 2 + j] + ' [] 0\n';
@@ -39,7 +39,7 @@ function converter() {
 		output = String('');
 		link = String('');
 		for (i = 0; i < 4; i++) {
-			output = output + '\nTeam ' + (i + 1) + ' - *\n';
+			output = output + '\nTeam ' + (i + 1) + ' - .\n';
 			link = link + '%0ATeam ' + (i + 1) + ' - *%0A';
 			for (j = 0; j < 3; j++) {
 				output = output + member[i * 3 + j] + ' [] 0\n';
@@ -55,7 +55,7 @@ function converter() {
 		output = String('');
 		link = String('');
 		for (i = 0; i < 3; i++) {
-			output = output + '\nTeam ' + (i + 1) + ' - *\n';
+			output = output + '\nTeam ' + (i + 1) + ' - .\n';
 			link = link + '%0ATeam ' + (i + 1) + ' - *%0A';
 			for (j = 0; j < 4; j++) {
 				output = output + member[i * 4 + j] + ' [] 0\n';
