@@ -67,8 +67,9 @@ function converter() {
 		alert('error');
 		break;
 	}
-	document.getElementById('outputText').value = output;
+	//document.getElementById('outputText').value = output;
 	document.getElementById('link').href='https://gb.hlorenzi.com/table?data='+link;
+	window.location.href='https://gb.hlorenzi.com/table?data='+link;
 }
 /*
 function copy() {
