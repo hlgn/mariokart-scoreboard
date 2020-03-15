@@ -5,13 +5,13 @@ function converter() {
 	input = document.getElementById('inputText').value
 
 	if(input.split('!scoreboard').length < 2) {
-		alert('syntax error: not found !scoreboard');
+		alert('syntax error: not found \"!scoreboard\"');
 		error = 1;
 	}
-	type = input.split('!scoreboard ')[1][0];
+	type = input.split('!scoreboard ')[1].split(' ')[0];
 	if (!error) {
 		switch (type) {
-		case 'f':
+		case 'ffa':
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
@@ -25,6 +25,22 @@ function converter() {
 			break;
 		case '6':
 			members = input.split('!scoreboard ')[1].slice(2);
+			if (members.slice(-1) == '`')
+				members = members.slice(0, -1);
+			member = members.split(' ');
+			output = String('');
+			link = String('');
+			for (i = 0; i < 6; i++) {
+				output = output + '\nTeam ' + (i + 1) + ' - .\n';
+				link = link + '%0ATeam ' + (i + 1) + ' - .%0A';
+				for (j = 0; j < 2; j++) {
+					output = output + member[i * 2 + j] + ' [] 0\n';
+					link = link + member[i * 2 + j] + ' [] 0%0A';
+				}
+			}
+			break;
+		case '2v2':
+			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
 			member = members.split(' ');
@@ -55,8 +71,40 @@ function converter() {
 				}
 			}
 			break;
+		case '3v3':
+			members = input.split('!scoreboard ')[1].slice(4);
+			if (members.slice(-1) == '`')
+				members = members.slice(0, -1);
+			member = members.split(' ');
+			output = String('');
+			link = String('');
+			for (i = 0; i < 4; i++) {
+				output = output + '\nTeam ' + (i + 1) + ' - .\n';
+				link = link + '%0ATeam ' + (i + 1) + ' - .%0A';
+				for (j = 0; j < 3; j++) {
+					output = output + member[i * 3 + j] + ' [] 0\n';
+					link = link + member[i * 3 + j] + ' [] 0%0A';
+				}
+			}
+			break;
 		case '3':
 			members = input.split('!scoreboard ')[1].slice(2);
+			if (members.slice(-1) == '`')
+				members = members.slice(0, -1);
+			member = members.split(' ');
+			output = String('');
+			link = String('');
+			for (i = 0; i < 3; i++) {
+				output = output + '\nTeam ' + (i + 1) + ' - .\n';
+				link = link + '%0ATeam ' + (i + 1) + ' - .%0A';
+				for (j = 0; j < 4; j++) {
+					output = output + member[i * 4 + j] + ' [] 0\n';
+					link = link + member[i * 4 + j] + ' [] 0%0A';
+				}
+			}
+			break;
+		case '4v4':
+			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
 			member = members.split(' ');
