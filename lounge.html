@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async
+	src="https://www.googletagmanager.com/gtag/js?id=UA-160714283-3"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-160714283-3');
+</script>
+
 <meta charset="utf-8" />
 
-<link rel="stylesheet" type="text/css" href="mk1.css">
+<link rel="stylesheet" type="text/css" href="test_mk1.css">
 <link rel="shortcut icon" type="image/x-icon"
 	href="./images/favicon.ico">
 <script type="text/javascript" src="lounge.js"></script>
@@ -14,10 +27,10 @@
 	<div id="header">
 		<!--<img src="./images/icon_transparent.png" class="icon">-->
 		<span id="header_title" style="display: inline-block"><span
-			class="css-br">Support tool </span>for Lounge</span>
-		<span id="select_language">
-			<a href="https://hlgn.github.io/mariokart-scoreboard"style="color:white">MarioKart<br>Scoreboard<br></a>
-			<!--
+			class="css-br">Support tool </span>for Lounge</span> <span
+			id="select_language"> <a
+			href="https://hlgn.github.io/mariokart-scoreboard"
+			style="color: white">MarioKart<br>Scoreboard<br></a> <!--
 			<a href="./test_jpn.html" class="lang_text"><img
 				src="./images/jpn.png" class="img_flag"> 日本語 </a> / <img
 			src="./images/us.png" class="img_flag"><img
@@ -28,18 +41,23 @@
 	<br> (1)
 	<br> ↓Paste the full text by Boo bot (including "!scoreboard")
 	<br> (↓ここに!scoreboardを含む全文(Boo botの組み分け結果)をペーストしてください。)
-	<input type="button" value="load example" onclick="loadExample();"  id="loadExample">
+	<input type="button" value="load example" onclick="loadExample();"
+		id="loadExample">
 	<br>
 	<textarea id="inputText"></textarea>
 	<br>
-	<br> (2)<br>
-	↓jump to this link<br>
+	<br> (2)
+	<br> ↓jump to this link
 	<br>
-	<label for="convert" id="label_button_reload"> make table (hlorenzi's table maker) <input
-		type="button" value="convert" onclick="converter();" id="convert">
+	<br>
+	<label for="convert" id="label_button_reload"> make table
+		(Lorenzi's Game Boards) <input type="button" value="convert"
+		onclick="converter();" id="convert">
 	</label>
-	<br><br>
-	click  <a id="link"href="https://gb.hlorenzi.com/table">here</a> when the page doesn't make a transition.
+	<br>
+	<br> click
+	<a id="link" href="https://gb.hlorenzi.com/table">here</a> when the
+	page doesn't make a transition.
 	<br>
 	<br>
 	<!-- <textarea id="outputText"></textarea> -->
