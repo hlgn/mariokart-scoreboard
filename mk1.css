@@ -267,6 +267,10 @@ body {
 #loadExample {
 	height: 2em;
 }
+
+#check {
+	height: 2em;
+}
 /*
 .img_Instagram{
 height: 30px;
@@ -545,6 +549,10 @@ bottom: 5px;
 		height: 5em;
 	}
 	#loadExample {
+		height: 3em;
+		font-size: 0.7em;
+	}
+	#check {
 		height: 3em;
 		font-size: 0.7em;
 	}
