@@ -50,6 +50,7 @@
 	<br> ↓jump to this link -->
 	<br>
 	<br>
+	(2)
 	<label for="convert" id="label_button_reload"> convert to table <input type="button" value="convert"
 		onclick="converter();" id="convert">
 	</label>
@@ -58,13 +59,18 @@
 	<a id="link" href="https://gb.hlorenzi.com/table">here</a> when the
 	page doesn't make a transition. -->
 	<br>
-	<br> (2)
+	<br> (3)
 	<br> ↓Input points
 	<br>
 	<textarea id="outputText"></textarea>
 	<br>
+	<input type="button" value="check table on Lorenzi's Table Maker (optional)" onclick="check();"
+		id="check">
 	<br>
-	size :
+	<br>
+	(4) select format and tier
+	<br>
+	format :
 	<select id="size" style="font-size:1em">
 		<option value=1>ffa</option>
 		<option value=2>2v2</option>
@@ -85,6 +91,7 @@
 	</select>
 	<br>
 	<br>
+	(5)
 	<label for="command" id="label_button_reload"> convert to cammand <input type="button" value="command"
 		onclick="command();" id="command">
 	</label>
@@ -98,6 +105,7 @@
 	<textarea id="commandText"></textarea>
 	<br>
 	<br>
+	(6)
 	<label for="copy" id="label_button_reload">
 		copy to clipboard
 		<input type="button" value="copy to clipboard" onclick="copy();" id="copy">
