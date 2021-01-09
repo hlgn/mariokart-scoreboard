@@ -65,7 +65,7 @@
 	<br>
 	<br>
 	size :
-	<select id="size">
+	<select id="size" style="font-size:1em">
 		<option value=1>ffa</option>
 		<option value=2>2v2</option>
 		<option value=3>3v3</option>
@@ -73,7 +73,7 @@
 		<option value=6>6v6</option>
 	</select>
 	tier :
-	<select id="tier">
+	<select id="tier" style="font-size:1em">
 		<option value='x'>x</option>
 		<option value='a'>a</option>
 		<option value='b'>b</option>
@@ -98,7 +98,11 @@
 	<textarea id="commandText"></textarea>
 	<br>
 	<br>
-	<input type="button" value="copy to clipboard" onclick="copy();"><br>
+	<label for="copy" id="label_button_reload">
+		copy to clipboard
+		<input type="button" value="copy to clipboard" onclick="copy();" id="copy">
+	</label>
+	<br>
 	<br>
 	<!--(3)<br>
 	↓jump to this link
