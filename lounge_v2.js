@@ -160,7 +160,7 @@ function converter() {
 
 function check() {
 	output = document.getElementById('outputText').value;
-	link = output.replace(/\n/g,'%0A');
+	link = output.replace(/\n/g,'%0A').replace(/\+/g,'%2B');
 	open("https://gb.hlorenzi.com/table?data="+link,"_blank");
 
 }
