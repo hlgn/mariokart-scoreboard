@@ -158,6 +158,13 @@ function converter() {
 	}
 }
 
+function check() {
+	output = document.getElementById('outputText').value;
+	link = output.replace(/\n/g,'%0A');
+	open("https://gb.hlorenzi.com/table?data="+link,"_blank");
+
+}
+
 function command() {
 	total = 0;
 	output = document.getElementById('outputText').value;
