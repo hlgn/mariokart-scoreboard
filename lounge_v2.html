@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async
+	src="https://www.googletagmanager.com/gtag/js?id=UA-160714283-3"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-160714283-3');
+</script>
+
+<meta charset="utf-8" />
+
+<link rel="stylesheet" type="text/css" href="test_mk1.css">
+<link rel="shortcut icon" type="image/x-icon"
+	href="./images/favicon.ico">
+<script type="text/javascript" src="lounge_v2.js"></script>
+<title>Lounge tool</title>
+</head>
+<body>
+	<div id="background"></div>
+	<div id="header">
+		<!--<img src="./images/icon_transparent.png" class="icon">-->
+		<span id="header_title" style="display: inline-block"><span
+			class="css-br">Support tool </span>for Lounge</span> <span
+			id="select_language"> <a
+			href="https://hlgn.github.io/mariokart-scoreboard"
+			style="color: white">MarioKart<br>Scoreboard<br></a> <!--
+			<a href="./test_jpn.html" class="lang_text"><img
+				src="./images/jpn.png" class="img_flag"> 日本語 </a> / <img
+			src="./images/us.png" class="img_flag"><img
+			src="./images/gb.png" class="img_flag"> English
+			-->
+		</span>
+	</div>
+	<br> (1)
+	<br> ↓Paste the full text by Boo bot (including "!scoreboard")
+	<br> (↓ここに!scoreboardを含む全文(Boo botの組み分け結果)をペーストしてください。)
+	<input type="button" value="load example" onclick="loadExample();"
+		id="loadExample">
+	<br>
+	<textarea id="inputText"></textarea>
+	<br>
+	<!-- <br> (2)
+	<br> ↓jump to this link -->
+	<br>
+	<br>
+	<label for="convert" id="label_button_reload"> convert to table <input type="button" value="convert"
+		onclick="converter();" id="convert">
+	</label>
+	<br>
+	<!-- <br> click
+	<a id="link" href="https://gb.hlorenzi.com/table">here</a> when the
+	page doesn't make a transition. -->
+	<br>
+	<br> (2)
+	<br> ↓Input points
+	<br>
+	<textarea id="outputText"></textarea>
+	<br>
+	<br>
+	size :
+	<select id="size">
+		<option value=1>ffa</option>
+		<option value=2>2v2</option>
+		<option value=3>3v3</option>
+		<option value=4>4v4</option>
+		<option value=6>6v6</option>
+	</select>
+	tier :
+	<select id="tier">
+		<option value='x'>x</option>
+		<option value='a'>a</option>
+		<option value='b'>b</option>
+		<option value='c'>c</option>
+		<option value='d'>d</option>
+		<option value='e'>e</option>
+		<option value='f'>f</option>
+		<option value='<tier>' selected>other</option>
+	</select>
+	<br>
+	<br>
+	<label for="command" id="label_button_reload"> convert to cammand <input type="button" value="command"
+		onclick="command();" id="command">
+	</label>
+	<br>
+	<br>
+	total =
+	<span id="total"></span>
+	<span id="totalAlert" style="color:#ff0000"></span>
+	<br>
+	<br>
+	<textarea id="commandText"></textarea>
+	<br>
+	<br>
+	<input type="button" value="copy to clipboard" onclick="copy();"><br>
+	<br>
+	<!--(3)<br>
+	↓jump to this link
+	<br>
+	<br>
+	<label for="link" id="label_button_reload"> <a id="link"
+		href="https://gb.hlorenzi.com/table"
+		style="text-decoration: none; color: #fff">make table (Lorenzi's
+			Game Boards)</a>
+	</label>-->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div id="blank"></div>
+	<div id="foot">
+		<br> <a href="https://twitter.com/hooligan_mk8d" class="linktext"><img
+			src="./images/Twitter_White.png" class="img_Twitter"> Twitter
+			@hooligan_mk8d </a>
+		<!--
+    <a href="https://www.instagram.com" class="linktext"><img src="./images/Instagram_White.png" class="img_Instagram"></a>
+    <a href="https://www.youtube.com" class="linktext"><img src="./images/Youtube_White.png" class="img_Youtube"></a>
+    -->
+	</div>
+</body>
+</html>
