@@ -255,7 +255,12 @@ body {
 }
 
 #outputText {
-	height: 20em;
+	height: 30em;
+	width: 80%;
+}
+
+#commandText {
+	height: 5em;
 	width: 80%;
 }
 
@@ -533,7 +538,11 @@ bottom: 5px;
 	}
 	#outputText {
 		font-size: 0.5em;
-		height: 20em;
+		height: 30em;
+	}
+	#commandText {
+		font-size: 0.5em;
+		height: 5em;
 	}
 	#loadExample {
 		height: 3em;
