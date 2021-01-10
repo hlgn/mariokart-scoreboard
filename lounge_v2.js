@@ -231,7 +231,7 @@ function copy() {
 	var textarea = document.getElementById('commandText');
 	textarea.select();
 	document.execCommand("copy");
-	alert('successfully coopied to clipboard!\n'+textarea.value)
+	alert('successfully coopied to clipboard!\nコピーされました!\n'+textarea.value)
 }
 
 function loadExample() {
