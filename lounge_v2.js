@@ -17,6 +17,8 @@ function converter() {
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
 			member = members.split(/,\s*|\s+/);
+			if (member[11].slice(-1) == '`')
+				member[11] = member[11].slice(0, -1);
 			output = String('FFA - Free for All\n');
 			link = String('FFA - Free for All%0A');
 			for (i = 0; i < 12; i++) {
@@ -30,6 +32,8 @@ function converter() {
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
 			member = members.split(/,\s*|\s+/);
+			if (member[11].slice(-1) == '`')
+				member[11] = member[11].slice(0, -1);
 			output = String('FFA - Free for All\n');
 			link = String('FFA - Free for All%0A');
 			for (i = 0; i < 12; i++) {
@@ -43,6 +47,8 @@ function converter() {
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
 			member = members.split(/,\s*|\s+/);
+			if (member[11].slice(-1) == '`')
+				member[11] = member[11].slice(0, -1);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 6; i++) {
@@ -60,6 +66,8 @@ function converter() {
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
 			member = members.split(/,\s*|\s+/);
+			if (member[11].slice(-1) == '`')
+				member[11] = member[11].slice(0, -1);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 6; i++) {
@@ -77,6 +85,8 @@ function converter() {
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
 			member = members.split(/,\s*|\s+/);
+			if (member[11].slice(-1) == '`')
+				member[11] = member[11].slice(0, -1);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 4; i++) {
@@ -94,6 +104,8 @@ function converter() {
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
 			member = members.split(/,\s*|\s+/);
+			if (member[11].slice(-1) == '`')
+				member[11] = member[11].slice(0, -1);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 4; i++) {
@@ -111,6 +123,8 @@ function converter() {
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
 			member = members.split(/,\s*|\s+/);
+			if (member[11].slice(-1) == '`')
+				member[11] = member[11].slice(0, -1);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 3; i++) {
@@ -128,6 +142,8 @@ function converter() {
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
 			member = members.split(/,\s*|\s+/);
+			if (member[11].slice(-1) == '`')
+				member[11] = member[11].slice(0, -1);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 3; i++) {
