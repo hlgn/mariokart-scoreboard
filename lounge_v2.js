@@ -16,7 +16,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(' ');
+			member = members.split(/,\s*|\s+/);
 			output = String('FFA - Free for All\n');
 			link = String('FFA - Free for All%0A');
 			for (i = 0; i < 12; i++) {
@@ -29,7 +29,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(' ');
+			member = members.split(/,\s*|\s+/);
 			output = String('FFA - Free for All\n');
 			link = String('FFA - Free for All%0A');
 			for (i = 0; i < 12; i++) {
@@ -42,7 +42,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(' ');
+			member = members.split(/,\s*|\s+/);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 6; i++) {
@@ -59,7 +59,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(' ');
+			member = members.split(/,\s*|\s+/);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 6; i++) {
@@ -76,7 +76,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(' ');
+			member = members.split(/,\s*|\s+/);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 4; i++) {
@@ -93,7 +93,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(' ');
+			member = members.split(/,\s*|\s+/);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 4; i++) {
@@ -110,7 +110,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(' ');
+			member = members.split(/,\s*|\s+/);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 3; i++) {
@@ -127,7 +127,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(' ');
+			member = members.split(/,\s*|\s+/);
 			output = String('');
 			link = String('');
 			for (i = 0; i < 3; i++) {
