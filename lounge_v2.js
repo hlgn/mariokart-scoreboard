@@ -16,7 +16,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*/);
+			member = members.split(/,\s*|\n+/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('FFA - Free for All\n');
@@ -31,7 +31,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*/);
+			member = members.split(/,\s*|\n+/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('FFA - Free for All\n');
@@ -46,7 +46,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*/);
+			member = members.split(/,\s*|\n/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
@@ -65,7 +65,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*/);
+			member = members.split(/,\s*|\n+/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
@@ -84,7 +84,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*/);
+			member = members.split(/,\s*|\n+/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
@@ -103,7 +103,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*/);
+			member = members.split(/,\s*|\n+/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
@@ -122,7 +122,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*/);
+			member = members.split(/,\s*|\n+/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
@@ -141,7 +141,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*/);
+			member = members.split(/,\s*|\n+/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
