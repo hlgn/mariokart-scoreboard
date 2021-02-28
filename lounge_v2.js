@@ -16,7 +16,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*|\s+/);
+			member = members.split(/,\s*/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('FFA - Free for All\n');
@@ -31,7 +31,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*|\s+/);
+			member = members.split(/,\s*/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('FFA - Free for All\n');
@@ -46,7 +46,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*|\s+/);
+			member = members.split(/,\s*/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
@@ -65,7 +65,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*|\s+/);
+			member = members.split(/,\s*/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
@@ -84,7 +84,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*|\s+/);
+			member = members.split(/,\s*/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
@@ -103,7 +103,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*|\s+/);
+			member = members.split(/,\s*/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
@@ -122,7 +122,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*|\s+/);
+			member = members.split(/,\s*/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
@@ -141,7 +141,7 @@ function converter() {
 			members = input.split('!scoreboard ')[1].slice(4);
 			if (members.slice(-1) == '`')
 				members = members.slice(0, -1);
-			member = members.split(/,\s*|\s+/);
+			member = members.split(/,\s*/);
 			if (member[11].slice(-1) == '`')
 				member[11] = member[11].slice(0, -1);
 			output = String('');
@@ -251,5 +251,5 @@ function copy() {
 }
 
 function loadExample() {
-	document.getElementById('inputText').value = '**Poll Ended!**\n\n`1.` FFA - **3**\n`2.` 2v2 - **6**\n`3.` 3v3 - **1**\n`4.` 4v4 - **0**\n`5.` 6v6 - **0**\n`Winner` - **2v2**\n\n`Team 1`: Player1 Player2\n`Team 2`: Player3 Player4\n`Team 3`: Player5 Player6\n`Team 4`: Player7 Player8\n`Team 5`: Player9 Player10\n`Team 6`: Player11 Player12\n\nTable: `!scoreboard 6 Player1 Player2 Player3 Player4 Player5 Player6 Player7 Player8 Player9 Player10 Player11 Player12`'
+	document.getElementById('inputText').value = '**Poll Ended!**\n\n`1.` FFA - **3**\n`2.` 2v2 - **6**\n`3.` 3v3 - **1**\n`4.` 4v4 - **0**\n`5.` 6v6 - **0**\n`Winner` - **2v2**\n\n`Team 1`: Player1 Player2\n`Team 2`: Player3 Player4\n`Team 3`: Player5 Player6\n`Team 4`: Player7 Player8\n`Team 5`: Player9 Player10\n`Team 6`: Player11 Player12\n\nTable: `!scoreboard 6 Player1, Player2, Player3, Player4, Player5, Player6, Player7, Player8, Player9, Player10, Player11, Player12`'
 }
