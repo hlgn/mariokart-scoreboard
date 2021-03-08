@@ -42,6 +42,21 @@ function converter() {
 			}
 			size.selectedIndex = 0;
 			break;
+		case '12':
+			members = input.split('!scoreboard ')[1].slice(3);
+			if (members.slice(-1) == '`')
+				members = members.slice(0, -1);
+			member = members.split(/,\s*|\n+/);
+			if (member[11].slice(-1) == '`')
+				member[11] = member[11].slice(0, -1);
+			output = String('FFA - Free for All\n');
+			link = String('FFA - Free for All%0A');
+			for (i = 0; i < 12; i++) {
+				output = output + member[i] + ' [] 0\n';
+				link = link + member[i] + ' [] 0%0A';
+			}
+			size.selectedIndex = 0;
+			break;
 		case '6':
 			members = input.split('!scoreboard ')[1].slice(2);
 			if (members.slice(-1) == '`')
