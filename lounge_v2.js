@@ -253,7 +253,8 @@ function command() {
 	} else {
 		document.getElementById('totalAlert').innerHTML = '';
 	}
-	document.getElementById('commandText').value = '!submit table '+size+' '+tier+data;
+	//document.getElementById('commandText').value = '!submit table '+size+' '+tier+data;
+	document.getElementById('commandText').value = '!submit '+size+' '+tier+document.getElementById('outputText').value
 }
 
 
