@@ -221,7 +221,7 @@ function command() {
 			for(var a=0;a<num.length;a++){
 				if(!isNaN(num.charAt(a))&&num.charAt(a)!=null&&num.charAt(a).indexOf(' ')!=0){//数値の時
 					tmppts=tmppts*10+pORn*Number(num.charAt(a));
-				} else if(num.charAt(a)=='+' || num.charAt(a).indexOf(' ')==0){
+				} else if(num.charAt(a)=='+' || num.charAt(a)=='|' || num.charAt(a).indexOf(' ')==0){
 					pts+=tmppts;
 					tmppts=0;
 					pORn=1;
@@ -230,7 +230,6 @@ function command() {
 					tmppts=0;
 					pORn=-1;
 				} else {
-					alert('aaa');
 					alert('included \''+num.charAt(a)+'\' (in \"'+num+'\")\nYou can only use number, \'+\' and \'-\''+"\n"+'個人点の \"'+num+'\"の中に\''+num.charAt(a)+'\'が含まれています\n数字と \'+\'、 \'-\'のみを使用してください');
 					return;
 				}
